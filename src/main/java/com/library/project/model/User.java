@@ -1,7 +1,9 @@
 package com.library.project.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -17,12 +19,43 @@ public class User {
     private String firstName;
     @Column(nullable = false, length = 45)
     private String lastName;
-    @Column(nullable = false,length = 1)
-    private int isEnabled;
+    @Column(nullable = false)
+    private boolean isEnabled;
     @Column(nullable = true, length = 255)
     private String reservedBooks;
     @Column(nullable = true, length = 255)
     private String borrowedBooks;
+
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "user_groups",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"
+            ))
+    private Set<Group> userGroups = new HashSet<>();
+
+    public Set<Group> getUserGroups() {
+        return userGroups;
+    }
+
+    public void setUserGroups(Set<Group> userGroups) {
+        this.userGroups = userGroups;
+    }
+
+    public void addUserGroups(Group group) {
+        userGroups.add(group);
+        group.getUsers().add(this);
+    }
+
+    public void removeUserGroups(Group group) {
+        userGroups.remove(group);
+        group.getUsers().remove(this);
+    }
+
+
     public User() {
     }
 
@@ -83,11 +116,11 @@ public class User {
         this.borrowedBooks = borrowedBooks;
     }
 
-    public int getIsEnabled() {
+    public boolean isEnabled() {
         return isEnabled;
     }
 
-    public void setIsEnabled(int isEnabled) {
-        this.isEnabled = isEnabled;
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
     }
 }
