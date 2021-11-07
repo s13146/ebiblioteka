@@ -29,7 +29,7 @@ public class UserRepositoryTests {
         user.setPassword("12345");
         user.setFirstName("Janusz");
         user.setLastName("Kowalski");
-        user.setIsEnabled(1);
+        user.setEnabled(true);
 
 
         User savedUser = userRepository.save(user);
@@ -46,7 +46,7 @@ public class UserRepositoryTests {
         user.setPassword("12345");
         user.setFirstName("Janusz");
         user.setLastName("Kowalski");
-        user.setIsEnabled(1);
+        user.setEnabled(true);
         userRepository.save(user);
         String email = "januszpol@wp.pl";
         User findUser = userRepository.getUserByEmail(email);
