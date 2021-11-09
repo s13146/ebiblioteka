@@ -19,6 +19,7 @@ public class UserService {
 
     public User save(User user){
         user.setPassword(passwordEncoder(user.getPassword()));
+        updateCustomerGroup(user);
         return userRepository.save(user);
     }
 

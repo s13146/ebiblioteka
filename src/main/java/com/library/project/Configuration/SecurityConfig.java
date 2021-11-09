@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/list_users")
                 .permitAll()
-                .antMatchers("/console").hasAnyAuthority("ADMIN")
+                .antMatchers("/console").hasAuthority("ADMIN")
                 .and()
                 .formLogin()
                 .usernameParameter("email")

@@ -39,4 +39,9 @@ public class AppController {
     public String viewUsersList() {
         return "users";
     }
+
+    @GetMapping("/console")
+    public String viewConsole() {
+        return "console";
+    }
 }
