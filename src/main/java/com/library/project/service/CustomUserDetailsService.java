@@ -1,7 +1,7 @@
 package com.library.project.service;
 
-import com.library.project.model.CustomUserDetails;
 import com.library.project.model.Group;
+import com.library.project.model.UserEntity;
 import com.library.project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,14 +24,14 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        com.library.project.model.User user = userRepository.getUserByEmail(email);
-        if (user == null){
+        UserEntity userEntity = userRepository.getUserByEmail(email);
+        if (userEntity == null){
             throw new UsernameNotFoundException("Użytkownik nie znaleziony");
         }
-        UserDetails userDetails = User.withUsername(user.getEmail())
-                .password(user.getPassword())
-                .disabled(user.isEnabled())
-                .authorities(getAuthorities(user)).build()
+        UserDetails userDetails = User.withUsername(userEntity.getEmail())
+                .password(userEntity.getPassword())
+                .disabled(userEntity.isEnabled())
+                .authorities(getAuthorities(userEntity)).build()
                 ;
 
 
@@ -39,8 +39,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         return userDetails;
     }
 
-    private Collection<GrantedAuthority> getAuthorities(com.library.project.model.User user){
-        Set<Group> userGroups = user.getUserGroups();
+    private Collection<GrantedAuthority> getAuthorities(UserEntity userEntity){
+        Set<Group> userGroups = userEntity.getUserGroups();
         Collection<GrantedAuthority> authorities = new ArrayList<>(userGroups.size());
         for(Group userGroup : userGroups){
             authorities.add(new SimpleGrantedAuthority(userGroup.getCode().toUpperCase()));
