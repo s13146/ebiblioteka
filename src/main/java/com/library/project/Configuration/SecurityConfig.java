@@ -21,14 +21,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/resources/**").permitAll()
                 .antMatchers("/list_users")
                 .permitAll()
                 .antMatchers("/console").hasAuthority("ADMIN")
                 .and()
                 .formLogin()
-                .usernameParameter("email")
-                .defaultSuccessUrl("/list_users")
-                .permitAll()
+                .successHandler(successHandler())
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll();
     }
@@ -40,6 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private DataSource dataSource;
+
+    @Bean
+    public CustomSuccessHandler successHandler() {
+        return new CustomSuccessHandler();
+    }
 
     @Bean
     public UserDetailsService userDetailsService() {

@@ -16,7 +16,7 @@ public class Group{
     private String name;
 
     @ManyToMany(mappedBy = "userGroups")
-    private Set<User> users;
+    private Set<UserEntity> userEntities;
 
     public Long getId() {
         return id;
@@ -42,11 +42,11 @@ public class Group{
         this.name = name;
     }
 
-    public Set<User> getUsers() {
-        return users;
+    public Set<UserEntity> getUsers() {
+        return userEntities;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setUsers(Set<UserEntity> userEntities) {
+        this.userEntities = userEntities;
     }
 }

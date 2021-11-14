@@ -1,17 +1,14 @@
 package com.library.project.repository;
 
-import com.library.project.model.User;
+import com.library.project.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
-
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-    @Query("SELECT u from User u where u.email = :email")
-    User getUserByEmail(String email);
+    @Query("SELECT u from UserEntity u where u.email = :email")
+    UserEntity getUserByEmail(String email);
 
 }

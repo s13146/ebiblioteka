@@ -1,7 +1,7 @@
 package com.library.project.service;
 
 import com.library.project.model.Group;
-import com.library.project.model.User;
+import com.library.project.model.UserEntity;
 import com.library.project.repository.UserGroupRepository;
 import com.library.project.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,10 +17,10 @@ public class UserService {
         this.groupRepository = groupRepository;
     }
 
-    public User save(User user){
-        user.setPassword(passwordEncoder(user.getPassword()));
-        updateCustomerGroup(user);
-        return userRepository.save(user);
+    public UserEntity save(UserEntity userEntity){
+        userEntity.setPassword(passwordEncoder(userEntity.getPassword()));
+        updateCustomerGroup(userEntity);
+        return userRepository.save(userEntity);
     }
 
     public String passwordEncoder(String rawPassword){
@@ -31,8 +31,8 @@ public class UserService {
 
 
 
-    private void updateCustomerGroup(User user){
+    private void updateCustomerGroup(UserEntity userEntity){
         Group group= groupRepository.findByCode("customer");
-        user.addUserGroups(group);
+        userEntity.addUserGroups(group);
     }
 }
