@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <meta charset="UTF-8">
+    <title>Czytelnik</title>
+</head>
+
+<body>
+
+<div class="container text-center">
+
+            <p>
+                <b>Jesteś zalogowany jako użytkownik...</b>
+            </p>
+        </div>
+        <div class="container">
+            <h3><a th:href="@{/}">home</a></h3>
+            <h3><a th:href="@{/books_list}">Księgozbiór</a></h3>
+            <form th:action="@{/logout}" method="post"></form>
+                <h3><a th:href="@{/logout}">Wyloguj</a></h3>
+            </form>
+        </div>
+
+
+</body>
+</html>

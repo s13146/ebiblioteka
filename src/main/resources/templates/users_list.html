@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Czytelnicy</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container text-center" >
+    <div>
+
+    </div>
+    <div>
+        <h1>Lista czytelników</h1>
+    </div>
+    <div>
+        <table class="table table-stripped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th> ID czytelnika</th>
+                <th> Imię</th>
+                <th> Nazwisko</th>
+                <th> E-mail</th>
+                <th> Książki zarezerwowane</th>
+                <th> Książki wypożyczone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="userEntity: ${listUsers}">
+                <td th:text="${userEntity.id}">ID czytelnika</td>
+                <td th:text="${userEntity.firstName}">Imię</td>
+                <td th:text="${userEntity.lastName}">Nazwisko</td>
+                <td th:text="${userEntity.reservedBooks}">Książki zarezerwowane</td>
+                <td th:text="${userEntity.borrowedBooks}">Książki wypożyczone</td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+
+</body>
+</html>

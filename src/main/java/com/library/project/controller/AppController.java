@@ -1,19 +1,24 @@
 package com.library.project.controller;
 
 import com.library.project.model.UserEntity;
+import com.library.project.repository.UserRepository;
 import com.library.project.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class AppController {
 
     private UserService userService;
+    private UserRepository userRepository;
 
-    public AppController(UserService userService) {
+    public AppController(UserService userService, UserRepository userRepository) {
         this.userService = userService;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("")
@@ -34,8 +39,10 @@ public class AppController {
     }
 
     @GetMapping("/list_users")
-    public String viewUsersList() {
-        return "users";
+    public String viewUsersList(Model model) {
+        List<UserEntity> listUsers = userRepository.findAll();
+        model.addAttribute("listUsers", listUsers);
+        return "users_list";
     }
 
     @GetMapping("/console")
@@ -44,4 +51,6 @@ public class AppController {
     }
     @GetMapping("/login")
     public String viewLogin() {return "login";}
+    @GetMapping("/customer")
+    public String viewCustomerPage(){return "customer";}
 }
