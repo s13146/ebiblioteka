@@ -13,6 +13,7 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
     public Book save(Book book){
+        book.setIsAvailable(1);
         return bookRepository.save(book);
     }
 }

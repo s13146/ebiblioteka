@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Czytelnicy</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container text-center" >
+    <div>
+
+    </div>
+    <div>
+        <h1>Wyniki wyszukiwania</h1>
+    </div>
+    <div>
+        <table class="table table-stripped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th> ID książki</th>
+                <th> Tytuł</th>
+                <th> Autor</th>
+                <th> Kategoria</th>
+                <th> Czy jest dostępna</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book: ${bookList}">
+                <td th:text="${book.id}">ID książki</td>
+                <td th:text="${book.title}">Tytuł</td>
+                <td th:text="${book.author}">Autor</td>
+                <td th:text="${book.category}">Kategoria</td>
+                <td th:text="${book.isAvailable}">Czy jest dostępna</td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+
+</body>
+</html>

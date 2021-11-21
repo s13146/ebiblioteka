@@ -16,13 +16,12 @@ public class Book {
     @Enumerated(EnumType.STRING)
     private Category category;
     @Column(nullable = false)
-    private byte isAvailable;
+    private int isAvailable;
 
     public Book(String title, String author, Category category) {
         this.title = title;
         this.author = author;
         this.category = category;
-        this.isAvailable = 1;
     }
 
     public Book() {
@@ -61,11 +60,11 @@ public class Book {
         this.category = category;
     }
 
-    public byte getIsAvailable() {
+    public int getIsAvailable() {
         return isAvailable;
     }
 
-    public void setIsAvailable(byte isAvailable) {
+    public void setIsAvailable(int isAvailable) {
         this.isAvailable = isAvailable;
     }
 }

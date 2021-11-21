@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <meta charset="UTF-8">
+    <title>eLibrary homepage</title>
+</head>
+
+<body>
+
+<div class="container text-center">
+    <h1>BIBLIOTEKA</h1>
+    <h3>Wyszukiwarka</h3>
+</div>
+<div class="container">
+    <h3><a th:href="@{/index}">Home</a></h3>
+    <form th:action="@{/search_result}" method="post"
+          style="max-width: 600px; margin: 0 auto;"
+
+    >
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-form-label col-4">Wpisz nazwę książki lub autora</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" th:value="${name}" name="name" required/>
+                </div>
+            </div>
+
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Szukaj</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
