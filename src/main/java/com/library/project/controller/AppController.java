@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -35,16 +34,16 @@ public class AppController {
         return "index";
     }
 
-    @GetMapping("/rejestracja")
+    @GetMapping("/registration")
     public String viewRegisterPage(Model model) {
         model.addAttribute("user", new UserEntity());
-        return "rejestracja";
+        return "registration";
     }
 
     @PostMapping("/process_register")
     public String processRegistration(UserEntity userEntity) {
         userService.save(userEntity);
-        return "rejestracja_udana";
+        return "process_register";
     }
 
     @GetMapping("/add_book")
@@ -62,7 +61,7 @@ public class AppController {
     public String viewUsersList(Model model) {
         List<UserEntity> listUsers = userRepository.findAll();
         model.addAttribute("listUsers", listUsers);
-        return "users_list";
+        return "list_users";
     }
 
     @GetMapping("/console")
