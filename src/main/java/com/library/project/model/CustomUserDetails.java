@@ -49,7 +49,7 @@ public class CustomUserDetails implements UserDetails {
         return true;
     }
 
-    public String getFullName(){
+    public String getFullName() {
         return userEntity.getFirstName() + " " + userEntity.getLastName();
     }
 }

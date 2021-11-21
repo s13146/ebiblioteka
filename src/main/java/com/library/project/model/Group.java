@@ -1,4 +1,5 @@
 package com.library.project.model;
+
 import javax.persistence.*;
 
 
@@ -6,7 +7,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "principle_groups")
-public class Group{
+public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

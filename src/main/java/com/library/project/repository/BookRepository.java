@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BookRepository extends JpaRepository <Book, Long>{
+public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT b from Book b where b.title = :title")
     Book getBookByTitle(String title);

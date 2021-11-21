@@ -12,27 +12,27 @@ public class UserService {
 
     private UserRepository userRepository;
     private UserGroupRepository groupRepository;
+
     public UserService(UserRepository userRepository, UserGroupRepository groupRepository) {
         this.userRepository = userRepository;
         this.groupRepository = groupRepository;
     }
 
-    public UserEntity save(UserEntity userEntity){
+    public UserEntity save(UserEntity userEntity) {
         userEntity.setPassword(passwordEncoder(userEntity.getPassword()));
         updateCustomerGroup(userEntity);
         return userRepository.save(userEntity);
     }
 
-    public String passwordEncoder(String rawPassword){
+    public String passwordEncoder(String rawPassword) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(rawPassword);
         return encodedPassword;
     }
 
 
-
-    private void updateCustomerGroup(UserEntity userEntity){
-        Group group= groupRepository.findByCode("customer");
+    private void updateCustomerGroup(UserEntity userEntity) {
+        Group group = groupRepository.findByCode("customer");
         userEntity.addUserGroups(group);
     }
 }

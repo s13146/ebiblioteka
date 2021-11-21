@@ -18,12 +18,11 @@ public class Book {
     @Column(nullable = false)
     private byte isAvailable;
 
-    public Book(long id, String title, String author, Category category, byte isAvailable) {
-        this.id = id;
+    public Book(String title, String author, Category category) {
         this.title = title;
         this.author = author;
         this.category = category;
-        this.isAvailable = isAvailable;
+        this.isAvailable = 1;
     }
 
     public Book() {

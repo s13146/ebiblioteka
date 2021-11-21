@@ -25,24 +25,22 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserEntity userEntity = userRepository.getUserByEmail(email);
-        if (userEntity == null){
+        if (userEntity == null) {
             throw new UsernameNotFoundException("Użytkownik nie znaleziony");
         }
         UserDetails userDetails = User.withUsername(userEntity.getEmail())
                 .password(userEntity.getPassword())
                 .disabled(userEntity.isEnabled())
-                .authorities(getAuthorities(userEntity)).build()
-                ;
-
+                .authorities(getAuthorities(userEntity)).build();
 
 
         return userDetails;
     }
 
-    private Collection<GrantedAuthority> getAuthorities(UserEntity userEntity){
+    private Collection<GrantedAuthority> getAuthorities(UserEntity userEntity) {
         Set<Group> userGroups = userEntity.getUserGroups();
         Collection<GrantedAuthority> authorities = new ArrayList<>(userGroups.size());
-        for(Group userGroup : userGroups){
+        for (Group userGroup : userGroups) {
             authorities.add(new SimpleGrantedAuthority(userGroup.getCode().toUpperCase()));
         }
 

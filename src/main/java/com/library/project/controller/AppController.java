@@ -1,7 +1,9 @@
 package com.library.project.controller;
 
+import com.library.project.model.Book;
 import com.library.project.model.UserEntity;
 import com.library.project.repository.UserRepository;
+import com.library.project.service.BookService;
 import com.library.project.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +17,12 @@ public class AppController {
 
     private UserService userService;
     private UserRepository userRepository;
+    private BookService bookService;
 
-    public AppController(UserService userService, UserRepository userRepository) {
+    public AppController(UserService userService, UserRepository userRepository, BookService bookService) {
         this.userService = userService;
         this.userRepository = userRepository;
+        this.bookService = bookService;
     }
 
     @GetMapping("")
@@ -38,6 +42,17 @@ public class AppController {
         return "rejestracja_udana";
     }
 
+    @GetMapping("/add_book")
+    public String addBook(Model model){
+        model.addAttribute("book",new Book());
+        return "add_book";
+    }
+    @PostMapping("/process_add_book")
+    public String processAddBook(Book book){
+        bookService.save(book);
+        return "add_book";
+    }
+
     @GetMapping("/list_users")
     public String viewUsersList(Model model) {
         List<UserEntity> listUsers = userRepository.findAll();
@@ -49,8 +64,14 @@ public class AppController {
     public String viewConsole() {
         return "console";
     }
+
     @GetMapping("/login")
-    public String viewLogin() {return "login";}
+    public String viewLogin() {
+        return "login";
+    }
+
     @GetMapping("/customer")
-    public String viewCustomerPage(){return "customer";}
+    public String viewCustomerPage() {
+        return "customer";
+    }
 }

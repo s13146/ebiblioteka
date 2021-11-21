@@ -21,10 +21,10 @@ public class UserEntity {
     private String lastName;
     @Column(nullable = false)
     private boolean isEnabled;
-    @Column(nullable = true, length = 255)
-    private String reservedBooks;
-    @Column(nullable = true, length = 255)
-    private String borrowedBooks;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userEntity")
+    // the value of mappedBy is the name of the association-mapping attribute on the owning side
+    private List<Reservation> reservations;
 
 
     @ManyToMany(cascade = {
@@ -97,23 +97,6 @@ public class UserEntity {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-
-    public String getReservedBooks() {
-        return reservedBooks;
-    }
-
-    public void setReservedBooks(String reservedBooks) {
-        this.reservedBooks = reservedBooks;
-    }
-
-    public String getBorrowedBooks() {
-        return borrowedBooks;
-    }
-
-    public void setBorrowedBooks(String borrowedBooks) {
-        this.borrowedBooks = borrowedBooks;
     }
 
     public boolean isEnabled() {
