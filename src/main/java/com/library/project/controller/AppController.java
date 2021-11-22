@@ -30,7 +30,9 @@ public class AppController {
     }
 
     @GetMapping("")
-    public String viewHomePage() {
+    public String viewHomePageWithBooksList(Model model) {
+        List<Book> listBooks = bookRepository.findAll();
+        model.addAttribute("listBooks", listBooks);
         return "index";
     }
 
@@ -54,7 +56,7 @@ public class AppController {
     @PostMapping("/process_add_book")
     public String processAddBook(Book book){
         bookService.save(book);
-        return "add_book";
+        return "process_add_book";
     }
 
     @GetMapping("/list_users")
@@ -83,10 +85,20 @@ public class AppController {
     public String viewSearchBook(){
         return "search_book";
     }
+
     @PostMapping("/search_result")
     public String viewSearchResult(Model model, @RequestParam String name){
-        List<Book> bookList = bookRepository.getBookByTitle(name);
+        //List<Book> bookList = bookRepository.getBookByTitle(name);
+        List<Book> bookList = bookRepository.getBookByTitleAuthorCategory(name);
         model.addAttribute("bookList", bookList);
         return "search_result";
     }
+
+    @GetMapping("/list_books")
+    public String viewBooksList(Model model) {
+        List<Book> listBooks = bookRepository.findAll();
+        model.addAttribute("listBooks", listBooks);
+        return "list_books";
+    }
+
 }

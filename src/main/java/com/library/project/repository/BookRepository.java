@@ -10,12 +10,6 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    @Query("SELECT b from Book b where b.title like %:title%")
-    List<Book> getBookByTitle(String title);
-
-    @Query("SELECT b from Book b where b.author like %:author%")
-    List<Book> getBookByAuthor(String author);
-
-    @Query("SELECT b from Book b where b.category = :category")
-    List<Book> getBookByCategory(String category);
+    @Query("SELECT b FROM Book b WHERE CONCAT(b.title, ' ', b.author, ' ', b.category) LIKE %?1%")
+    public List<Book> getBookByTitleAuthorCategory(String keyword);
 }

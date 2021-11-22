@@ -18,6 +18,25 @@
     <h3><a th:href="@{/search_book}">Wyszukiwarka książek</a></h3>
     <h3><a th:href="@{/console}" sec:authorize="hasAnyAuthority('ADMIN')">console</a></h3>
 </div>
+<div>
+    <table class="table table-stripped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th> Tytuł</th>
+            <th> Autor</th>
+            <th> Kategoria</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book: ${listBooks}">
+            <td th:text="${book.title}">Tytuł</td>
+            <td th:text="${book.author}">Autor</td>
+            <td th:text="${book.category}">Kategoria</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
 
 </body>
 </html>
