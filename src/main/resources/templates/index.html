@@ -1,42 +1,56 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org"
-      xmlns:sec="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <meta charset="UTF-8">
-    <title>eLibrary homepage</title>
+    <meta charset="utf-8" />
+    <link th:href="@{/styles/style-index.css}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <title>eBiblioteka</title>
 </head>
-
 <body>
+<header>
+    <img class="logo" th:src="@{images/logo_tlo.png}" alt="logo"/>
+    <div class="login">
+        <a th:href="@{login}"><img class="login_photo" th:src="@{../images/login_photo_text.png}" alt="Zaloguj się"/></a>
+    </div>
+</header>
 
-<div class="container text-center">
-    <h1>BIBLIOTEKA</h1>
-</div>
-<div class="container">
-    <h3><a th:href="@{/registration}">Rejestracja</a></h3>
-    <h3><a th:href="@{/login}">Login</a></h3>
-    <h3><a th:href="@{/search_book}">Wyszukiwarka książek</a></h3>
-    <h3><a th:href="@{/console}" sec:authorize="hasAnyAuthority('ADMIN')">console</a></h3>
-</div>
-<div>
-    <table class="table table-stripped table-bordered">
-        <thead class="thead-dark">
-        <tr>
-            <th> Tytuł</th>
-            <th> Autor</th>
-            <th> Kategoria</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="book: ${listBooks}">
-            <td th:text="${book.title}">Tytuł</td>
-            <td th:text="${book.author}">Autor</td>
-            <td th:text="${book.category}">Kategoria</td>
-        </tr>
-        </tbody>
+<div class="content">
 
-    </table>
-</div>
+    <div class="folder">
+        <div class="search">
+            <form>
+                <input type="text" name="search" placeholder="Wyszukaj..">
+            </form>
+        </div>
 
+        <h1>Katalog on-line</h1>
+        <h2>Kategroia</h2>
+        <h2>Kategroia</h2>
+        <h2>Kategroia</h2>
+        <h2>Kategroia</h2>
+        <h2>Kategroia</h2>
+        <h2>Kategroia</h2>
+        <h2>Kategroia</h2>
+        <h2>Kategroia</h2>
+        <h2>Kategroia</h2>
+
+    </div>
+    <div class="main">
+
+        <h1>Witaj w eBibliotece</h1>
+        <div class="information">
+
+            <img class="photo" th:src="@{../images/photo.png}"/>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+        </div>
+    </div>
+</div>
+<footer>
+    <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
 </body>
 </html>
