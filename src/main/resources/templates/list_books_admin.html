@@ -23,15 +23,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="book: ${listBooks}">
+            <tr th:each="book: ${listBooksAdmin}">
                 <td th:text="${book.id}">ID książki</td>
                 <td th:text="${book.title}">Tytuł</td>
                 <td th:text="${book.author}">Autor</td>
                 <td th:text="${book.category}">Kategoria</td>
+                <td>
+                    <a th:href="@{'/editbook/' + ${book.id}}">Edycja</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deletebook/' + ${book.id}}">Usuń</a>
+                </td>
             </tr>
             </tbody>
         </table>
-        <h3><a th:href="@{/customer}">Home</a></h3>
+        <h3><a th:href="@{/console}">Home</a></h3>
     </div>
 </div>
 </body>

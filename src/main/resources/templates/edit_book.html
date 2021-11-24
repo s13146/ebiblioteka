@@ -3,20 +3,26 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <meta charset="UTF-8">
-    <title>Dodawanie pozycji księgozbioru</title>
+    <title>eLibrary register page</title>
 </head>
 
 <body>
 
 <div class="container text-center">
-    <h1>Edycja książki</h1>
-    <form th:action="@{/process_add_book}" method="post"
+    <h1>Dodawanie książki</h1>
+    <form th:action="@{/process_edit_book}" method="post"
           style="max-width: 600px; margin: 0 auto;"
           th:object="${book}"
 
     >
         <div class="m-3">
             <div class="form-group row">
+                <div class="form-group row">
+                    <label class="col-form-label col-4">ID książki</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" th:field="*{id}" readonly = "readonly"/>
+                    </div>
+                </div>
                 <label class="col-form-label col-4">Tytuł</label>
                 <div class="col-8">
                     <input type="text" class="form-control" th:field="*{title}" required/>
@@ -37,7 +43,7 @@
                 </div>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary">Dodaj książkę</button>
+                <button type="submit" class="btn btn-primary">Zapisz</button>
             </div>
         </div>
 

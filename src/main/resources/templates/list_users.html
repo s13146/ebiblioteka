@@ -20,6 +20,7 @@
                 <th> Imię</th>
                 <th> Nazwisko</th>
                 <th> E-mail</th>
+                <th> Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -28,10 +29,16 @@
                 <td th:text="${userEntity.firstName}">Imię</td>
                 <td th:text="${userEntity.lastName}">Nazwisko</td>
                 <td th:text="${userEntity.email}">Nazwisko</td>
+                <td>
+                    <a th:href="@{'/edit/' + ${userEntity.id}}">Edycja</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete/' + ${userEntity.id}}">Usuń</a>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
+    <h3><a th:href="@{/console}">Home</a></h3>
 </div>
 </body>
 </html>

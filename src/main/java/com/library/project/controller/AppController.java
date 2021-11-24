@@ -8,9 +8,8 @@ import com.library.project.service.BookService;
 import com.library.project.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -88,7 +87,6 @@ public class AppController {
 
     @PostMapping("/search_result")
     public String viewSearchResult(Model model, @RequestParam String name){
-        //List<Book> bookList = bookRepository.getBookByTitle(name);
         List<Book> bookList = bookRepository.getBookByTitleAuthorCategory(name);
         model.addAttribute("bookList", bookList);
         return "search_result";
@@ -101,4 +99,66 @@ public class AppController {
         return "list_books";
     }
 
+    //Edycja użytkownika
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditUserEntityForm(@PathVariable(name = "id") long id){
+        ModelAndView mav = new ModelAndView("edit_user");
+
+        UserEntity userEntity = userRepository.getById(id);
+        mav.addObject("userEntity", userEntity);
+        return mav;
+    }
+
+    @PostMapping("/process_edit")
+    public String processEditUser(UserEntity userEntity, Model model) {
+        userService.save(userEntity);
+        List<UserEntity> listUsers = userRepository.findAll();
+        model.addAttribute("listUsers", listUsers);
+        return "list_users";
+    }
+
+    //usuwanie użytkownika
+    @RequestMapping("/delete/{id}")
+    public String deleteUserEntity(@PathVariable(name = "id") long id, Model model) {
+        UserEntity userEntity = userRepository.getById(id);
+        userRepository.delete(userEntity);
+        List<UserEntity> listUsers = userRepository.findAll();
+        model.addAttribute("listUsers", listUsers);
+        return "list_users";
+    }
+    //księgozbiór wyświetlany tylko dla admina z możliwością edycji
+    @GetMapping("/list_books_admin")
+    public String viewEditBooksList(Model model) {
+        List<Book> listBooksAdmin = bookRepository.findAll();
+        model.addAttribute("listBooksAdmin", listBooksAdmin);
+        return "list_books_admin";
+    }
+
+    //Edycja książki
+    @RequestMapping("/editbook/{id}")
+    public ModelAndView showEditBookForm(@PathVariable(name = "id") long id){
+        ModelAndView mav = new ModelAndView("edit_book");
+
+        Book book = bookRepository.getById(id);
+        mav.addObject("book", book);
+        return mav;
+    }
+
+    @PostMapping("/process_edit_book")
+    public String processEditBook(Book book, Model model) {
+        bookService.save(book);
+        List<Book> listBooksAdmin = bookRepository.findAll();
+        model.addAttribute("listBooksAdmin", listBooksAdmin);
+        return "list_books_admin";
+    }
+
+    //usuwanie książki
+    @RequestMapping("/deletebook/{id}")
+    public String deleteBook(@PathVariable(name = "id") long id, Model model) {
+        Book book = bookRepository.getById(id);
+        bookRepository.delete(book);
+        List<Book> listBooksAdmin = bookRepository.findAll();
+        model.addAttribute("listBooksAdmin", listBooksAdmin);
+        return "list_books_admin";
+    }
 }

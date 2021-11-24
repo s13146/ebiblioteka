@@ -13,7 +13,6 @@
     <h1>BIBLIOTEKA</h1>
 </div>
 <div class="container">
-    <h3><a th:href="@{/registration}">Rejestracja</a></h3>
     <h3><a th:href="@{/login}">Login</a></h3>
     <h3><a th:href="@{/search_book}">Wyszukiwarka książek</a></h3>
     <h3><a th:href="@{/console}" sec:authorize="hasAnyAuthority('ADMIN')">console</a></h3>
