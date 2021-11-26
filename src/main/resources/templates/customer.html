@@ -20,8 +20,7 @@
     <a th:href="@{/list_books}"><img class="option" th:src="@{../images/list.png}" alt="Lista książek"/></a>
     <a th:href="@{/search_book}"><img class="option" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/></a>
     <a th:href="@{/customer_details}"><img class="option" th:src="@{../images/customer.png}" alt="Moje dane"/></a>
-    <form th:action="@{/logout}" method="post"></form>
-    <a th:href="@{/logout}"><img class="option" th:src="@{../images/logout.png}" alt="Wyloguj się"/></a>
+    <form th:action="@{/logout}" method="post"><input type="image" img class="option" th:src="@{../images/logout.png}" alt="Wyloguj się"/></a></form>
     </div>
 </div>
 <footer>
