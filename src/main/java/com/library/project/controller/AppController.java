@@ -161,4 +161,8 @@ public class AppController {
         model.addAttribute("listBooksAdmin", listBooksAdmin);
         return "list_books_admin";
     }
+    @GetMapping("/customer_details")
+    public String viewCustomerDetails(){
+        return "customer_details";
+    }
 }
