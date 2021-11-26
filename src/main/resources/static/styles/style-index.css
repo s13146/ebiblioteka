@@ -3,7 +3,6 @@ body {
     background-color:white;
     margin:0 auto;
     display: block;
-    text-decoration-color: #3f5983;
     font-family: 'Roboto', sans-serif;
     padding-top: 3%;
 }
@@ -46,12 +45,12 @@ lable {
 .content{
     background-color: white;
     display: flex;
-    height: 30vh;
 }
 h1 {
     padding-top: 3%;
     font-family: 'Roboto';
     font-size: 1em;
+    padding-bottom: 5%;
 }
 h2 {
     padding-left: 5%;
@@ -72,16 +71,18 @@ p {
 }
 .main {
     width: 70%;
-    padding-left: 10%;
+    padding: 5%;
+    display: block;
+    text-align: center;
+}
+.search {
+    padding: 5%;
     display: block;
 }
-.search { 
+.search_photo{
     width: 100%;
-    padding: 10%;
-    display: flex;
-    align-items: flex-end;
-}
 
+}
 input[type=text] {
     width: 100px;
     box-sizing: border-box;
@@ -96,11 +97,25 @@ input[type=text] {
 input[type=text]:focus {
     width: 100%;
 }
-.information {
-    padding-right: 10%;
-    display: flex;
-    justify-content: right;
-    text-align: center;
+.table {
+    border-collapse: collapse;
+    width: 100%;
+
+}
+.headline {
+    background-color: #9edbc8 ;
+    font-family: 'Roboto';
+    font-size: medium;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    font-size: 10px;
+}
+tr:nth-child(even) {background-color: beige;}
+tr {
+    width: 100%;
 }
 .photo {
     width: 10%;
