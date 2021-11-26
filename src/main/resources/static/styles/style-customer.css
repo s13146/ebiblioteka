@@ -17,16 +17,20 @@ header {
     width: 50%;
 }
 .content{
-    background-color: white;
-    display: flex;
-    height: 30vh;
+    text-align: center;
+}
+h2 {
+    padding-left: 5%;
+    font-family: 'Roboto';
+    font-size: 1em;
 }
 .main {
+    padding: 5%;
     display: flex;
-    width: 50%;
+    justify-content: center;
 }
 .option {
-    width: 80%;
+    width: 90%;
     border: #47ad96;
     border-style: double;
     border-radius: 3px;
