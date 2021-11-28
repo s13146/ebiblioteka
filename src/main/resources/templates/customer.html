@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+
 <head>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <meta charset="UTF-8">
-    <title>Czytelnik</title>
+    <title>Rejestracja</title>
+    <link rel="stylesheet" th:href="@{styles/style-customer.css}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-<div class="container text-center">
-
-            <p>
-                <b>Jesteś zalogowany jako użytkownik...</b>
-            </p>
-        </div>
-        <div class="container">
-            <h3><a th:href="@{/}">home</a></h3>
-            <h3><a th:href="@{/list_books}">Księgozbiór</a></h3>
-            <h3><a th:href="@{/search_book}">Wyszukiwarka książek</a></h3>
-            <form th:action="@{/logout}" method="post"></form>
-                <h3><a th:href="@{/logout}">Wyloguj</a></h3>
-            </form>
-        </div>
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
+<div class="content">
+    <h2>Jesteś zalogowany jako: [[${#request.userPrincipal.principal.username}]]</h2>
+    <h3><a th:href="@{/}">home</a></h3>
+    <div class="main">
+    <a th:href="@{/list_books}"><img class="option" th:src="@{../images/list.png}" alt="Lista książek"/></a>
+    <a th:href="@{/search_book}"><img class="option" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/></a>
+    <a th:href="@{/customer_details}"><img class="option" th:src="@{../images/customer.png}" alt="Moje dane"/></a>
+    <form th:action="@{/logout}" method="post"><input type="image" img class="option" th:src="@{../images/logout.png}" alt="Wyloguj się"/></a></form>
+    </div>
+</div>
+<footer>
+    <p>Biblioteka PJATK GDAŃSK</p>
+    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
 </body>
 </html>

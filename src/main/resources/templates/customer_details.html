@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <meta charset="UTF-8">
+    <title>Dane osobowe</title>
+</head>
+
+<body>
+
+<div class="container text-center">
+
+            <p>
+                <b>Twoje dane osobowe</b>
+            </p>
+        </div>
+        <div class="container">
+            <h3><a th:href="@{/customer}">home</a></h3>
+            <h3><a th:href="@{/list_books}">Księgozbiór</a></h3>
+            <h3><a th:href="@{/search_book}">Wyszukiwarka książek</a></h3>
+            <h3><form th:action="@{/logout}" method="post"><input type="submit" value="Wyloguj"></form></h3>
+        </div>
+        <div>
+            <form>
+                <p>
+                    <b>E-mail: </b>
+                    [[${#request.userPrincipal.principal.username}]]
+                </p>
+            </form>
+        </div>
+</body>
+</html>

@@ -27,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/console").hasAuthority("ADMIN")
                 .and()
                 .formLogin()
+                .loginPage("/login")
                 .successHandler(successHandler())
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll();

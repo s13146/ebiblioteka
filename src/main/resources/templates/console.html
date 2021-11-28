@@ -15,12 +15,10 @@
     <h2>TOP SECRET 2137</h2>
     <h3><a th:href="@{/}">home</a></h3>
     <h3><a th:href="@{/list_users}">Lista czytelników</a></h3>
-    <h3><a th:href="@{/list_books}">Księgozbiór</a></h3>
-    <h3><a th:href="@{/add_book}">Dodawanie książki</a></h3>
-    <form th:action="@{/logout}" method="post"></form>
-        <h3><a th:href="@{/logout}">Wyloguj</a></h3>
-    </form>
+    <h3><a th:href="@{/registration}">Dodaj czytelnika</a></h3>
+    <h3><a th:href="@{/list_books_admin}">Księgozbiór</a></h3>
+    <h3><a th:href="@{/add_book}">Dodaj książkę</a></h3>
+    <h3><form th:action="@{/logout}" method="post"><input type="submit" value="Wyloguj"></form></h3>
 </div>
-
 </body>
 </html>
