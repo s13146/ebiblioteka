@@ -15,7 +15,6 @@
 </header>
 <div class="content">
     <h2>Jesteś zalogowany jako: [[${#request.userPrincipal.principal.username}]]</h2>
-    <h3><a th:href="@{/}">home</a></h3>
     <div class="main">
     <a th:href="@{/list_books}"><img class="option" th:src="@{../images/list.png}" alt="Lista książek"/></a>
     <a th:href="@{/search_book}"><img class="option" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/></a>

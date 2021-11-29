@@ -165,4 +165,9 @@ public class AppController {
     public String viewCustomerDetails(){
         return "customer_details";
     }
+
+    @GetMapping("/error")
+    public String anyError(){
+        return "error";
+    }
 }
