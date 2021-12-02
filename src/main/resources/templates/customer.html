@@ -16,10 +16,13 @@
 <div class="content">
     <h2>Jesteś zalogowany jako: [[${#request.userPrincipal.principal.username}]]</h2>
     <div class="main">
-    <a th:href="@{/list_books}"><img class="option" th:src="@{../images/list.png}" alt="Lista książek"/></a>
-    <a th:href="@{/search_book}"><img class="option" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/></a>
-    <a th:href="@{/customer_details}"><img class="option" th:src="@{../images/customer.png}" alt="Moje dane"/></a>
-    <form th:action="@{/logout}" method="post"><input type="image" img class="option" th:src="@{../images/logout.png}" alt="Wyloguj się"/></a></form>
+        <div class="border">
+            <a th:href="@{/list_books}"><img class="option" th:src="@{../images/customer_icon/list.png }" alt="Lista książek"/></a>
+            <h2>Lista książek</h2>
+        </div>
+    <a th:href="@{/search_book}"><img class="option" th:src="@{../images/customer_icon/search.png}" alt="Wyszukiwarka książek"/></a>
+    <a th:href="@{/customer_details}"><img class="option" th:src="@{../images/customer_icon/customer.png}" alt="Moje dane"/></a>
+    <form th:action="@{/logout}" method="post"><input type="image" img class="option" th:src="@{../images/customer_icon/logout.png}" alt="Wyloguj się"/></form>
     </div>
 </div>
 <footer>
