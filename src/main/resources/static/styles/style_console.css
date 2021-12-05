@@ -17,27 +17,31 @@ header {
     width: 50%;
 }
 .content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5%;
     text-align: center;
 }
 h2 {
-    padding-left: 5%;
+    padding: -10px;
     font-family: 'Roboto';
     font-size: 1em;
+    text-align: center;
 }
-.main {
-    padding: 5%;
-    display: flex;
-    justify-content: center;
-}
+
 .border {
     border: #47ad96;
     border-style: double;
     border-radius: 3px;
-    margin: 3%;
+    width: 15%;
+    height: 15%;
+    margin: 10px;
+
 }
 .option {
-    width: 90%;
-
+    width: 80%;
+    margin: 0 auto;
 }
 h2 {
     padding-left: 5%;

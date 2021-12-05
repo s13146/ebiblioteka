@@ -4,7 +4,6 @@ body {
     margin:0 auto;
     display: block;
     font-family: 'Roboto', sans-serif;
-    padding-top: 3%;
 }
 header {
     background-color:white;
@@ -45,6 +44,7 @@ lable {
 .content{
     background-color: white;
     display: flex;
+    height: auto;
 }
 h1 {
     padding-top: 3%;
@@ -74,6 +74,8 @@ p {
     padding: 5%;
     display: block;
     text-align: center;
+    overflow: scroll;
+    height: 400px;
 }
 .search {
     padding: 5%;
@@ -97,10 +99,9 @@ input[type=text] {
 input[type=text]:focus {
     width: 100%;
 }
-.table {
+table {
     border-collapse: collapse;
     width: 100%;
-
 }
 .headline {
     background-color: #9edbc8 ;

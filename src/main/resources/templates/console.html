@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <meta charset="UTF-8">
-    <title>eLibrary homepage</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 
+<head>
+    <meta charset="UTF-8">
+    <title>Consola</title>
+    <link rel="stylesheet" th:href="@{styles/style_console.css}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+</head>
 <body>
+<<<<<<< HEAD
 
 <div class="container text-center">
     <h1>BIBLIOTEKA</h1>
@@ -22,6 +26,41 @@
     <h3><a th:href="@{/list_book_ready}">Lista książek gotowych do odbioru</a></h3>
     <h3><a th:href="@{/list_book_taken}">Lista wypożyczonych książek</a></h3>
     <h3><form th:action="@{/logout}" method="post"><input type="submit" value="Wyloguj"></form></h3>
+=======
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
+<div class="content">
+    <div class="border">
+       <a th:href="@{/}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/></a>
+        <h2>Menu</h2>
+    </div>
+    <div class="border">
+    <a th:href="@{/list_users}"><img class="option" th:src="@{../images/admin_icon/icon_users.png }" alt="List user"/></a>
+        <h2>Lista użytkowników</h2>
+    </div>
+    <div class="border">
+    <a th:href="@{/registration}"><img class="option" th:src="@{../images/admin_icon/icon_add_user.png }" alt="Add user"/></a>
+        <h2>Dodaj użytkownika</h2>
+    </div>
+    <div class="border">
+    <a th:href="@{/list_books_admin}"><img class="option" th:src="@{../images/admin_icon/icon_books.png }" alt="List books"/></a>
+        <h2>Księgozbiór</h2>
+    </div>
+    <div class="border">
+    <a th:href="@{/add_book}"><img class="option" th:src="@{../images/admin_icon/icon_add_book.png }" alt="Add book"/></a>
+        <h2>Dodaj książkę</h2>
+    </div>
+    <div class="border">
+    <form th:action="@{/logout}" method="post"><input type="image" img class="option" th:src="@{../images/customer_icon/logout.png}" alt="Wyloguj się"/></form>
+        <h2>Wyloguj się</h2>
+    </div>
+>>>>>>> 3619df8fc0f7a0d8a7889a7cbdf75e184d6e1979
 </div>
+<footer>
+    <p>Biblioteka PJATK GDAŃSK</p>
+    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
 </body>
 </html>
