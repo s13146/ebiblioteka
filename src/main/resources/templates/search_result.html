@@ -30,7 +30,10 @@
                 <td th:text="${book.title}">Tytuł</td>
                 <td th:text="${book.author}">Autor</td>
                 <td th:text="${book.category}">Kategoria</td>
-                <td th:text="${book.isAvailable}">Czy jest dostępna</td>
+                <td th:text="${book.bookStatus}">Czy jest dostępna</td>
+                <td>
+                    <a th:href="@{'/book_reservation/' + ${book.id}}">Zarezerwuj</a>
+                </td>
             </tr>
             </tbody>
 

@@ -1,5 +1,8 @@
 package com.library.project.model;
 
+import com.library.project.model.enums.BookStatus;
+import com.library.project.model.enums.Category;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +19,8 @@ public class Book {
     @Enumerated(EnumType.STRING)
     private Category category;
     @Column(nullable = false)
-    private int isAvailable;
+    @Enumerated(EnumType.STRING)
+    private BookStatus bookStatus;
 
     public Book(String title, String author, Category category) {
         this.title = title;
@@ -60,11 +64,11 @@ public class Book {
         this.category = category;
     }
 
-    public int getIsAvailable() {
-        return isAvailable;
+    public BookStatus getBookStatus() {
+        return bookStatus;
     }
 
-    public void setIsAvailable(int isAvailable) {
-        this.isAvailable = isAvailable;
+    public void setBookStatus(BookStatus bookStatus) {
+        this.bookStatus = bookStatus;
     }
 }

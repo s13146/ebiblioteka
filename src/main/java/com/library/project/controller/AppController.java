@@ -1,10 +1,15 @@
 package com.library.project.controller;
 
 import com.library.project.model.Book;
+import com.library.project.model.Reservation;
 import com.library.project.model.UserEntity;
+import com.library.project.model.enums.BookStatus;
+import com.library.project.model.enums.ReservationStatus;
 import com.library.project.repository.BookRepository;
+import com.library.project.repository.ReservationRepository;
 import com.library.project.repository.UserRepository;
 import com.library.project.service.BookService;
+import com.library.project.service.ReservationService;
 import com.library.project.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +25,16 @@ public class AppController {
     private UserRepository userRepository;
     private BookService bookService;
     private BookRepository bookRepository;
+    private ReservationService reservationService;
+    private ReservationRepository reservationRepository;
 
-    public AppController(UserService userService, UserRepository userRepository, BookService bookService, BookRepository bookRepository) {
+    public AppController(UserService userService, UserRepository userRepository, BookService bookService, BookRepository bookRepository, ReservationService reservationService, ReservationRepository reservationRepository) {
         this.userService = userService;
         this.userRepository = userRepository;
         this.bookService = bookService;
         this.bookRepository = bookRepository;
+        this.reservationService = reservationService;
+        this.reservationRepository = reservationRepository;
     }
 
     @GetMapping("")
@@ -48,12 +57,13 @@ public class AppController {
     }
 
     @GetMapping("/add_book")
-    public String addBook(Model model){
-        model.addAttribute("book",new Book());
+    public String addBook(Model model) {
+        model.addAttribute("book", new Book());
         return "add_book";
     }
+
     @PostMapping("/process_add_book")
-    public String processAddBook(Book book){
+    public String processAddBook(Book book) {
         bookService.save(book);
         return "process_add_book";
     }
@@ -81,12 +91,12 @@ public class AppController {
     }
 
     @GetMapping("/search_book")
-    public String viewSearchBook(){
+    public String viewSearchBook() {
         return "search_book";
     }
 
     @PostMapping("/search_result")
-    public String viewSearchResult(Model model, @RequestParam String name){
+    public String viewSearchResult(Model model, @RequestParam String name) {
         List<Book> bookList = bookRepository.getBookByTitleAuthorCategory(name);
         model.addAttribute("bookList", bookList);
         return "search_result";
@@ -101,7 +111,7 @@ public class AppController {
 
     //Edycja użytkownika
     @RequestMapping("/edit/{id}")
-    public ModelAndView showEditUserEntityForm(@PathVariable(name = "id") long id){
+    public ModelAndView showEditUserEntityForm(@PathVariable(name = "id") long id) {
         ModelAndView mav = new ModelAndView("edit_user");
 
         UserEntity userEntity = userRepository.getById(id);
@@ -126,6 +136,7 @@ public class AppController {
         model.addAttribute("listUsers", listUsers);
         return "list_users";
     }
+
     //księgozbiór wyświetlany tylko dla admina z możliwością edycji
     @GetMapping("/list_books_admin")
     public String viewEditBooksList(Model model) {
@@ -136,7 +147,7 @@ public class AppController {
 
     //Edycja książki
     @RequestMapping("/editbook/{id}")
-    public ModelAndView showEditBookForm(@PathVariable(name = "id") long id){
+    public ModelAndView showEditBookForm(@PathVariable(name = "id") long id) {
         ModelAndView mav = new ModelAndView("edit_book");
 
         Book book = bookRepository.getById(id);
@@ -161,13 +172,74 @@ public class AppController {
         model.addAttribute("listBooksAdmin", listBooksAdmin);
         return "list_books_admin";
     }
+
+
+    @RequestMapping("/book_reservation/{id}")
+    public String bookReservation(@PathVariable(name = "id") long id, Model model) {
+        UserEntity userEntity = userService.getCurrentUser();
+        Book book = bookRepository.getById(id);
+        if (userEntity == null) {
+            return "error";
+        } else if (userEntity.nrOfReservations() > 2) {
+            System.out.println(userEntity.nrOfReservations());
+            return "error";
+        } else if (book.getBookStatus() == BookStatus.NOTAVAILABLE) {
+            return "error";
+        } else {
+            book.setBookStatus(BookStatus.NOTAVAILABLE);
+            model.addAttribute("book", book);
+            userService.addReservation(userEntity, book);
+            return "process_book_reservation";
+        }
+    }
+
+    @GetMapping("/list_reservations")
+    public String viewReservationBooksList(Model model) {
+        List<Reservation> listReservations = reservationRepository.findAllByReservationStatusOrderByBorrowDateDesc(ReservationStatus.BOOKED);
+        model.addAttribute("listReservations", listReservations);
+        return "list_reservations";
+    }
+
+    @RequestMapping("/book_ready/{id}")
+    public String bookReady(@PathVariable(name = "id") long id) {
+        reservationService.updateStatus(id, ReservationStatus.READYFORPICKUP);
+        return "process_book_ready";
+    }
+
+    @GetMapping("/list_book_ready")
+    public String viewReadyBooksList(Model model) {
+        List<Reservation> listReservations = reservationRepository.findAllByReservationStatusOrderByBorrowDateDesc(ReservationStatus.READYFORPICKUP);
+        model.addAttribute("listReservations", listReservations);
+        return "list_book_ready";
+    }
+
+    @RequestMapping("/book_taken/{id}")
+    public String bookTaken(@PathVariable(name = "id") long id) {
+        reservationService.updateStatus(id, ReservationStatus.TAKEN);
+        return "process_book_taken";
+    }
+
+    @GetMapping("/list_book_taken")
+    public String viewTakenBooksList(Model model) {
+        List<Reservation> listReservations = reservationRepository.findAllByReservationStatusOrderByBorrowDateDesc(ReservationStatus.TAKEN);
+        model.addAttribute("listReservations", listReservations);
+        return "list_book_taken";
+    }
+
+    @RequestMapping("/book_returned/{id}")
+    public String bookReturned(@PathVariable(name = "id") long id) {
+        reservationService.updateStatus(id, ReservationStatus.RETURNED);
+
+        return "process_book_return";
+    }
+
     @GetMapping("/customer_details")
-    public String viewCustomerDetails(){
+    public String viewCustomerDetails() {
         return "customer_details";
     }
 
     @GetMapping("/error")
-    public String anyError(){
+    public String anyError() {
         return "error";
     }
 }

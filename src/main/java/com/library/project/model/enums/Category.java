@@ -1,4 +1,4 @@
-package com.library.project.model;
+package com.library.project.model.enums;
 
 public enum Category {
     OBYCZAJOWA,

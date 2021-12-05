@@ -1,5 +1,7 @@
 package com.library.project.model;
 
+import com.library.project.model.enums.ReservationStatus;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,22 +13,27 @@ public class Reservation {
     private long id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    //our reservation entity will have a foreign key column named user_id reffering to the primary key attribute of out user entity
+    //our reservation entity will have a foreign key column named user_id refering to the primary key attribute of out user entity
     private UserEntity userEntity;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
     private Book book;
     @Column(nullable = false)
-    private byte isBooked;
-    @Column(nullable = false)
-    private byte isReadyForPickUp;
-    @Column(nullable = false)
-    private byte isTaken;
-    @Column(nullable = false)
-    private byte isReturned;
+    @Enumerated(EnumType.STRING)
+    private ReservationStatus reservationStatus;
+    private String borrowDate;
+    private String returnDate;
 
 
     public Reservation() {
+    }
+
+    public Reservation(UserEntity userEntity, Book book, ReservationStatus reservationStatus) {
+        this.userEntity = userEntity;
+        this.book = book;
+        this.reservationStatus = reservationStatus;
+        this.borrowDate= java.time.LocalDate.now().toString();
+        this.returnDate =java.time.LocalDate.now().plusMonths(1).toString();
     }
 
     public long getId() {
@@ -53,35 +60,28 @@ public class Reservation {
         this.book = book;
     }
 
-    public byte getIsBooked() {
-        return isBooked;
+    public ReservationStatus getReservationStatus() {
+        return reservationStatus;
     }
 
-    public void setIsBooked(byte isBooked) {
-        this.isBooked = isBooked;
+    public void setReservationStatus(ReservationStatus reservationStatus) {
+        this.reservationStatus = reservationStatus;
     }
 
-    public byte getIsReadyForPickUp() {
-        return isReadyForPickUp;
+    public String getBorrowDate() {
+        return borrowDate;
     }
 
-    public void setIsReadyForPickUp(byte isReadyForPickUp) {
-        this.isReadyForPickUp = isReadyForPickUp;
+    public void setBorrowDate(String borrowDate) {
+        this.borrowDate = borrowDate;
     }
 
-    public byte getIsTaken() {
-        return isTaken;
+    public String getReturnDate() {
+        return returnDate;
     }
 
-    public void setIsTaken(byte isTaken) {
-        this.isTaken = isTaken;
+    public void setReturnDate(String returnDate) {
+        this.returnDate = returnDate;
     }
 
-    public byte getIsReturned() {
-        return isReturned;
-    }
-
-    public void setIsReturned(byte isReturned) {
-        this.isReturned = isReturned;
-    }
 }

@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static org.thymeleaf.util.ListUtils.size;
+
+
 @Entity
 @Table(name = "users")
 public class UserEntity {
@@ -105,5 +108,24 @@ public class UserEntity {
 
     public void setEnabled(boolean enabled) {
         isEnabled = enabled;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public int nrOfReservations() {
+        return size(reservations);
+    }
+
+    public void addReservation(Reservation reservation) {
+        reservations.add(reservation);
+    }
+    public void deleteReservation(Reservation reservation){
+        reservations.remove(reservation);
     }
 }

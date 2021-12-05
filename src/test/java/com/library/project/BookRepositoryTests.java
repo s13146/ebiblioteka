@@ -1,8 +1,8 @@
 package com.library.project;
 
 import com.library.project.model.Book;
-import com.library.project.model.Category;
-import com.library.project.model.UserEntity;
+import com.library.project.model.enums.BookStatus;
+import com.library.project.model.enums.Category;
 import com.library.project.repository.BookRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class BookRepositoryTests {
         book.setTitle("Pan Tadeusz");
         book.setAuthor("Adam Mickiewicz");
         book.setCategory(Category.LEKTURA);
-        book.setIsAvailable((byte) 1);
+        book.setBookStatus(BookStatus.AVAILABLE);
 
         Book savedBook = bookRepository.save(book);
         Book existsBook = testEntityManager.find(Book.class,savedBook.getId());

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Księgozbiór</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+    </div>
+    <div>
+        <h1>Książki gotowe do odbioru</h1>
+    </div>
+    <div>
+        <table class="table table-stripped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID rezerwacji</th>
+                <th>ID użytkownika</th>
+                <th>ID książki</th>
+                <th>Status wypożyczenia</th>
+                <th>Data wypożyczenia</th>
+                <th>Data zwrotu</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="reservation: ${listReservations}">
+                <td th:text="${reservation.id}">ID rezerwacji</td>
+                <td th:text="${reservation.userEntity}">ID użytkownika</td>
+                <td th:text="${reservation.book}">ID książki</td>
+                <td th:text="${reservation.reservationStatus}">Status rezerwacji</td>
+                <td th:text="${reservation.borrowDate}">Data wypożyczenia</td>
+                <td th:text="${reservation.returnDate}">Data zwrotu</td>
+                <td>
+                    <a th:href="@{'/book_taken/' + ${reservation.id}}">Przydziel książkę użytkownikowi</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h3><h3><a th:href="@{/console}" sec:authorize="hasAnyAuthority('ADMIN')">console</a></h3>
+    </div>
+</div>
+</body>
+</html>
