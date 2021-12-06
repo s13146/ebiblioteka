@@ -86,7 +86,10 @@ public class AppController {
     }
 
     @GetMapping("/customer")
-    public String viewCustomerPage() {
+    public String viewCustomerPage(Model model) {
+        UserEntity loggedUser = userService.getCurrentUser();
+        String fullname = loggedUser.getFirstName() + "  " + loggedUser.getLastName();
+        model.addAttribute("fullname", fullname);
         return "customer";
     }
 
@@ -107,6 +110,15 @@ public class AppController {
         List<Book> listBooks = bookRepository.findAll();
         model.addAttribute("listBooks", listBooks);
         return "list_books";
+    }
+
+    @GetMapping("/list_user_books")
+    public String viewMyBooksList(Model model) {
+        UserEntity loggedUser = userService.getCurrentUser();
+        String email = loggedUser.getEmail();
+        List<Reservation> mybooks = reservationRepository.getMyReservation(email);
+        model.addAttribute("mybooks", mybooks);
+        return "list_user_books";
     }
 
     //Edycja użytkownika
@@ -234,7 +246,14 @@ public class AppController {
     }
 
     @GetMapping("/customer_details")
-    public String viewCustomerDetails() {
+    public String viewCustomerDetails(Model model) {
+        UserEntity loggedUser = userService.getCurrentUser();
+        String firstName = loggedUser.getFirstName();
+        String lastName = loggedUser.getLastName();
+        String email = loggedUser.getEmail();
+        model.addAttribute("firstname", firstName);
+        model.addAttribute("lastname", lastName);
+        model.addAttribute("email", email);
         return "customer_details";
     }
 

@@ -22,12 +22,11 @@
             <h3><form th:action="@{/logout}" method="post"><input type="submit" value="Wyloguj"></form></h3>
         </div>
         <div>
-            <form>
-                <p>
-                    <b>E-mail: </b>
-                    [[${#request.userPrincipal.principal.username}]]
-                </p>
-            </form>
+            <h5><span th:text="'Imię:  ' + ${firstname}"/></h5>
+            <br>
+            <h5><span th:text="'Nazwisko:  ' + ${lastname}"/></h5>
+            <br>
+            <h5><span th:text="'Email:  ' + ${email}"/></h5>
         </div>
 </body>
 </html>

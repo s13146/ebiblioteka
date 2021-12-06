@@ -17,8 +17,8 @@
             <thead class="thead-dark">
             <tr>
                 <th>ID rezerwacji</th>
-                <th>ID użytkownika</th>
-                <th>ID książki</th>
+                <th>Użytkownik</th>
+                <th>Tytuł książki</th>
                 <th>Status wypożyczenia</th>
                 <th>Data wypożyczenia</th>
                 <th>Data zwrotu</th>
@@ -28,8 +28,8 @@
             <tbody>
             <tr th:each="reservation: ${listReservations}">
                 <td th:text="${reservation.id}">ID rezerwacji</td>
-                <td th:text="${reservation.userEntity}">ID użytkownika</td>
-                <td th:text="${reservation.book}">ID książki</td>
+                <td th:text="${reservation.userEntity.getEmail()}">Użytkownik</td>
+                <td th:text="${reservation.book.getTitle()}">Tytuł książki</td>
                 <td th:text="${reservation.reservationStatus}">Status rezerwacji</td>
                 <td th:text="${reservation.borrowDate}">Data wypożyczenia</td>
                 <td th:text="${reservation.returnDate}">Data zwrotu</td>
