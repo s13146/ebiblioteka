@@ -86,13 +86,21 @@ public class AppController {
     }
 
     @GetMapping("/customer")
-    public String viewCustomerPage() {
+    public String viewCustomerPage(Model model) {
+        UserEntity loggedUser = userService.getCurrentUser();
+        String fullname = loggedUser.getFirstName() + "  " + loggedUser.getLastName();
+        model.addAttribute("fullname", fullname);
         return "customer";
     }
 
     @GetMapping("/search_book")
     public String viewSearchBook() {
         return "search_book";
+    }
+
+    @GetMapping("/search_book_unlogged")
+    public String viewSearchBookUnlogged() {
+        return "search_book_unlogged";
     }
 
     @PostMapping("/search_result")
@@ -107,6 +115,15 @@ public class AppController {
         List<Book> listBooks = bookRepository.findAll();
         model.addAttribute("listBooks", listBooks);
         return "list_books";
+    }
+
+    @GetMapping("/list_user_books")
+    public String viewMyBooksList(Model model) {
+        UserEntity loggedUser = userService.getCurrentUser();
+        String email = loggedUser.getEmail();
+        List<Reservation> mybooks = reservationRepository.getMyReservation(email);
+        model.addAttribute("mybooks", mybooks);
+        return "list_user_books";
     }
 
     //Edycja użytkownika
@@ -149,7 +166,6 @@ public class AppController {
     @RequestMapping("/editbook/{id}")
     public ModelAndView showEditBookForm(@PathVariable(name = "id") long id) {
         ModelAndView mav = new ModelAndView("edit_book");
-
         Book book = bookRepository.getById(id);
         mav.addObject("book", book);
         return mav;
@@ -178,17 +194,16 @@ public class AppController {
     public String bookReservation(@PathVariable(name = "id") long id, Model model) {
         UserEntity userEntity = userService.getCurrentUser();
         Book book = bookRepository.getById(id);
-        if (userEntity == null) {
+        if (userEntity.getReservationsCount() >2)
+            return"errortomanybooks";
+            else if(book.getBookStatus() == BookStatus.NOTAVAILABLE)
             return "error";
-        } else if (userEntity.nrOfReservations() > 2) {
-            System.out.println(userEntity.nrOfReservations());
-            return "error";
-        } else if (book.getBookStatus() == BookStatus.NOTAVAILABLE) {
-            return "error";
-        } else {
+            else {
             book.setBookStatus(BookStatus.NOTAVAILABLE);
             model.addAttribute("book", book);
             userService.addReservation(userEntity, book);
+            userEntity.setReservationsCount(userEntity.getReservationsCount()+1);
+            userRepository.save(userEntity);
             return "process_book_reservation";
         }
     }
@@ -226,15 +241,24 @@ public class AppController {
         return "list_book_taken";
     }
 
-    @RequestMapping("/book_returned/{id}")
-    public String bookReturned(@PathVariable(name = "id") long id) {
+    @GetMapping("/book_returned/{id}/{email}")
+        public String bookReturned(@PathVariable long id, @PathVariable String email){
+        UserEntity userEntity = userRepository.getUserByEmail(email);
         reservationService.updateStatus(id, ReservationStatus.RETURNED);
-
+        userEntity.setReservationsCount(userEntity.getReservationsCount() - 1);
+        userRepository.save(userEntity);
         return "process_book_return";
     }
 
     @GetMapping("/customer_details")
-    public String viewCustomerDetails() {
+    public String viewCustomerDetails(Model model) {
+        UserEntity loggedUser = userService.getCurrentUser();
+        String firstName = loggedUser.getFirstName();
+        String lastName = loggedUser.getLastName();
+        String email = loggedUser.getEmail();
+        model.addAttribute("firstname", firstName);
+        model.addAttribute("lastname", lastName);
+        model.addAttribute("email", email);
         return "customer_details";
     }
 

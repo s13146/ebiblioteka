@@ -32,7 +32,7 @@
                 <td th:text="${book.category}">Kategoria</td>
                 <td th:text="${book.bookStatus}">Czy jest dostępna</td>
                 <td>
-                    <a th:href="@{'/book_reservation/' + ${book.id}}">Zarezerwuj</a>
+                    <a th:href="@{'/book_reservation/' + ${book.id}}" sec:authorize="hasAnyAuthority('CUSTOMER')">Zarezerwuj</a>
                 </td>
             </tr>
             </tbody>

@@ -20,6 +20,7 @@
                 <th> Imię</th>
                 <th> Nazwisko</th>
                 <th> E-mail</th>
+                <th> Liczba reserwacji</th>
                 <th> Actions</th>
             </tr>
             </thead>
@@ -28,7 +29,8 @@
                 <td th:text="${userEntity.id}">ID czytelnika</td>
                 <td th:text="${userEntity.firstName}">Imię</td>
                 <td th:text="${userEntity.lastName}">Nazwisko</td>
-                <td th:text="${userEntity.email}">Nazwisko</td>
+                <td th:text="${userEntity.email}">E-mail</td>
+                <td th:text="${userEntity.reservationsCount}">Liczba rezerwacji</td>
                 <td>
                     <a th:href="@{'/edit/' + ${userEntity.id}}">Edycja</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;

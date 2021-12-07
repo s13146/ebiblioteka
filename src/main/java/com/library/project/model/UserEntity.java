@@ -24,6 +24,8 @@ public class UserEntity {
     private String lastName;
     @Column(nullable = false)
     private boolean isEnabled;
+    @Column(columnDefinition = "integer default 0")
+    private int reservationsCount;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userEntity")
     // the value of mappedBy is the name of the association-mapping attribute on the owning side
@@ -108,6 +110,14 @@ public class UserEntity {
 
     public void setEnabled(boolean enabled) {
         isEnabled = enabled;
+    }
+
+    public int getReservationsCount() {
+        return reservationsCount;
+    }
+
+    public void setReservationsCount(int reservationsCount) {
+        this.reservationsCount = reservationsCount;
     }
 
     public List<Reservation> getReservations() {

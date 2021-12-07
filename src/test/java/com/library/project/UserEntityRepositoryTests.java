@@ -30,6 +30,7 @@ public class UserEntityRepositoryTests {
         userEntity.setFirstName("Janusz");
         userEntity.setLastName("Kowalski");
         userEntity.setEnabled(true);
+        userEntity.setReservationsCount(0);
 
 
         UserEntity savedUserEntity = userRepository.save(userEntity);

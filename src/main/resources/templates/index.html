@@ -21,7 +21,7 @@
 
     <div class="folder">
         <div class="search">
-            <a th:href="@{/search_book}"><img class="search_photo" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/></a>
+            <a th:href="@{/search_book_unlogged}"><img class="search_photo" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/></a>
         </div>
     </div>
     <div class="main">
@@ -41,7 +41,6 @@
                     <td th:text="${book.category}">Kategoria</td>
                 </tr>
                 </tbody>
-
             </table>
     </div>
 </div>

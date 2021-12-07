@@ -14,12 +14,12 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <h2>Jesteś zalogowany jako: [[${#request.userPrincipal.principal.username}]]</h2>
+    <h2><span th:text="'Jesteś zalogowany jako:  ' + ${fullname}"/></h2>
     <div class="main">
         <div class="border">
-            <a th:href="@{/list_books}"><img class="option" th:src="@{../images/customer_icon/list.png }"
-                                             alt="Lista książek"/></a>
-            <h2>Lista książek</h2>
+            <a th:href="@{/list_user_books}"><img class="option" th:src="@{../images/customer_icon/list.png }"
+                                             alt="Moje książki"/></a>
+            <h2>Moje książki</h2>
         </div>
         <div class="border">
             <a th:href="@{/search_book}"><img class="option" th:src="@{../images/customer_icon/search.png}"
