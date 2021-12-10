@@ -1,32 +1,53 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en"
+<html xmlns:th="http://www.thymeleaf.org" lang="pl"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <meta charset="UTF-8">
     <title>Dane osobowe</title>
+    <link rel="stylesheet" th:href="@{styles/style-customer_details.css}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-<div class="container text-center">
-
-            <p>
-                <b>Twoje dane osobowe</b>
-            </p>
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
+<div class="content">
+                <h5><span th:text="'Imię:  ' + ${firstname}"/></h5>
+                <br>
+                <h5><span th:text="'Nazwisko:  ' + ${lastname}"/></h5>
+                <br>
+                <h5><span th:text="'Email:  ' + ${email}"/></h5>
+    <div class="main">
+        <div class="border">
+                <a th:href="@{/list_user_books}"><img class="option" th:src="@{../images/customer_icon/list.png }"
+                                                      alt="Moje książki"/></a>
+                <h2>Moje książki</h2>
+            </div>
+            <div class="border">
+                <a th:href="@{/search_book}"><img class="option" th:src="@{../images/customer_icon/search.png}"
+                                                  alt="Wyszukiwarka książek"/></a>
+                <h2>Wyszukaj książkę</h2>
+            </div>
+            <div class="border">
+                <a th:href="@{/customer_details}"><img class="option" th:src="@{../images/customer_icon/customer.png}"
+                                                       alt="Moje dane"/></a>
+                <h2>Moje dane</h2>
+            </div>
+            <div class="border">
+                <form th:action="@{/logout}" method="post"><input type="image" img class="option" th:src="@{../images/customer_icon/logout.png}"
+                                                                  alt="Wyloguj się"/></form>
+                <h2>Wyloguj się</h2>
+            </div>
         </div>
-        <div class="container">
-            <h3><a th:href="@{/customer}">home</a></h3>
-            <h3><a th:href="@{/list_books}">Księgozbiór</a></h3>
-            <h3><a th:href="@{/search_book}">Wyszukiwarka książek</a></h3>
-            <h3><form th:action="@{/logout}" method="post"><input type="submit" value="Wyloguj"></form></h3>
-        </div>
-        <div>
-            <h5><span th:text="'Imię:  ' + ${firstname}"/></h5>
-            <br>
-            <h5><span th:text="'Nazwisko:  ' + ${lastname}"/></h5>
-            <br>
-            <h5><span th:text="'Email:  ' + ${email}"/></h5>
-        </div>
+    </div>
+</div>
+<footer>
+    <p>Biblioteka PJATK GDAŃSK</p>
+    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
 </body>
 </html>

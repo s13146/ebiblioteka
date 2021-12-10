@@ -1,20 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <meta charset="UTF-8">
-    <title>eLibrary homepage</title>
+    <title>Consola</title>
+    <link rel="stylesheet" th:href="@{styles/style-process_add_book.css}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-<div class="container text-center">
-    <h1>Pomyślnie dodano książkę</h1>
-</div>
-<div class="container">
-    <h3><a th:href="@{/add_book}">Dodaj kolejną książkę</a></h3>
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
+<div class="content">
+    <div class="main">
+        <h1>Pomyślnie dodano książkę</h1>
+        <div class="border">
+            <a th:href="@{/add_book}"><img class="option" th:src="@{../images/admin_icon/icon_add_book.png }" alt="Add book"/></a>
+            <h2>Dodaj książkę</h2>
+        </div>
     <h3><a th:href="@{/console}">Home</a></h3>
+    </div>
 </div>
-
+<footer>
+    <p>Biblioteka PJATK GDAŃSK</p>
+    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
 </body>
 </html>
