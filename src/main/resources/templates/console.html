@@ -10,13 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container text-center">
-    <h1>BIBLIOTEKA</h1>
-</div>
-<div class="container">
-    <h3><a th:href="@{/list_reservations}">Lista zarezerwowanych książek</a></h3>
-    <h3><a th:href="@{/list_book_ready}">Lista książek gotowych do odbioru</a></h3>
-    <h3><a th:href="@{/list_book_taken}">Lista wypożyczonych książek</a></h3>
 <header>
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
@@ -40,6 +33,18 @@
     <div class="border">
     <a th:href="@{/add_book}"><img class="option" th:src="@{../images/admin_icon/icon_add_book.png }" alt="Add book"/></a>
         <h2>Dodaj książkę</h2>
+    </div>
+    <div class="border">
+        <a th:href="@{/list_reservations}"><img class="option" th:src="@{../images/admin_icon/icon_reservation.png }" alt="Add book"/></a>
+        <h2>Lista zarezerwowanych książek</h2>
+    </div>
+    <div class="border">
+        <a th:href="@{/list_book_ready}"><img class="option" th:src="@{../images/admin_icon/icon_ready.png }" alt="Add book"/></a>
+        <h2>Lista książek gotowych do odbioru</h2>
+    </div>
+    <div class="border">
+        <a th:href="@{/list_book_taken}"><img class="option" th:src="@{../images/admin_icon/icon_ready.png }" alt="Add book"/></a>
+        <h2>Lista wypożyczonych książek</h2>
     </div>
     <div class="border">
     <form th:action="@{/logout}" method="post"><input type="image" img class="option" th:src="@{../images/customer_icon/logout.png}" alt="Wyloguj się"/></form>
