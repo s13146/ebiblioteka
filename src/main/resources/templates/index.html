@@ -12,7 +12,9 @@
 <header>
     <img class="logo" th:src="@{images/logo_tlo.png}" alt="logo"/>
     <div class="login">
-        <a th:href="@{login}"><img class="login_photo" th:src="@{../images/login_photo_text.png}" alt="Zaloguj się"/></a>
+        <a th:href="@{login}"><img class="login_photo" th:src="@{../images/login.png}" alt="Zaloguj się"/>
+            <span class="text_login">Zaloguj się</span>
+        </a>
     </div>
 </header>
 
@@ -21,11 +23,12 @@
 
     <div class="folder">
         <div class="search">
-            <a th:href="@{/search_book_unlogged}"><img class="search_photo" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/></a>
+            <a th:href="@{/search_book_unlogged}"><img class="search_photo" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/><h2>Wyszukiwarka</h2>
+            </a>
         </div>
     </div>
     <div class="main">
-        <h1>Witaj w eBiliotece! Oto nasze najnowsze pozycje.</h1>
+        <h1>Witaj w eBibliotece! Oto nasze najnowsze pozycje.</h1>
         <table>
                 <thead class="headline">
                 <tr>

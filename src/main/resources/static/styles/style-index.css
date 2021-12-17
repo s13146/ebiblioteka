@@ -16,14 +16,17 @@ header {
 }
 .login 
 {
-    display: flex; 
-    justify-content: flex-end;
-    text-align: right;
-    align-items: center;
+    display: flex;
 }
-
+.text-login {
+    font-family: 'Roboto';
+    font-size: 0.5em;
+    margin-right: 50px;
+    text-decoration: none;
+}
 .login_photo{
     width:35%;
+    margin-left: 40%;
 }
 .login_format {
     height: 10%;
@@ -78,8 +81,7 @@ p {
     height: 400px;
 }
 .search {
-    padding: 5%;
-    display: block;
+    display: flex;
 }
 .search_photo{
     width: 100%;
