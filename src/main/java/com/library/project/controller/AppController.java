@@ -1,5 +1,6 @@
 package com.library.project.controller;
 
+import com.library.project.exception.ApiRequestException;
 import com.library.project.model.Book;
 import com.library.project.model.Reservation;
 import com.library.project.model.UserEntity;
@@ -11,11 +12,14 @@ import com.library.project.repository.UserRepository;
 import com.library.project.service.BookService;
 import com.library.project.service.ReservationService;
 import com.library.project.service.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -52,8 +56,13 @@ public class AppController {
 
     @PostMapping("/process_register")
     public String processRegistration(UserEntity userEntity) {
-        userService.save(userEntity);
-        return "process_register";
+        try {
+            userService.save(userEntity);
+            return "process_register";
+        } catch (Exception e) {
+            throw new ApiRequestException("Wystąpił błąd podczas rejestrowania tego użytkwonika");
+        }
+
     }
 
     @GetMapping("/add_book")
@@ -194,15 +203,15 @@ public class AppController {
     public String bookReservation(@PathVariable(name = "id") long id, Model model) {
         UserEntity userEntity = userService.getCurrentUser();
         Book book = bookRepository.getById(id);
-        if (userEntity.getReservationsCount() >2)
-            return"errortomanybooks";
-            else if(book.getBookStatus() == BookStatus.NOTAVAILABLE)
+        if (userEntity.getReservationsCount() > 2)
+            return "errortomanybooks";
+        else if (book.getBookStatus() == BookStatus.NOTAVAILABLE)
             return "error";
-            else {
+        else {
             book.setBookStatus(BookStatus.NOTAVAILABLE);
             model.addAttribute("book", book);
             userService.addReservation(userEntity, book);
-            userEntity.setReservationsCount(userEntity.getReservationsCount()+1);
+            userEntity.setReservationsCount(userEntity.getReservationsCount() + 1);
             userRepository.save(userEntity);
             return "process_book_reservation";
         }
@@ -242,7 +251,7 @@ public class AppController {
     }
 
     @GetMapping("/book_returned/{id}/{email}")
-        public String bookReturned(@PathVariable long id, @PathVariable String email){
+    public String bookReturned(@PathVariable long id, @PathVariable String email) {
         UserEntity userEntity = userRepository.getUserByEmail(email);
         reservationService.updateStatus(id, ReservationStatus.RETURNED);
         userEntity.setReservationsCount(userEntity.getReservationsCount() - 1);
