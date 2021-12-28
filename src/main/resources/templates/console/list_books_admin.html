@@ -16,10 +16,11 @@
         <table class="table table-stripped table-bordered">
             <thead class="thead-dark">
             <tr>
-                <th> ID książki</th>
-                <th> Tytuł</th>
-                <th> Autor</th>
-                <th> Kategoria</th>
+                <th>ID książki</th>
+                <th>Tytuł</th>
+                <th>Autor</th>
+                <th>Kategoria</th>
+                <th>Status</th>
             </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
                 <td th:text="${book.title}">Tytuł</td>
                 <td th:text="${book.author}">Autor</td>
                 <td th:text="${book.category}">Kategoria</td>
+                <td th:text="${book.bookStatus}">Status</td>
                 <td>
                     <a th:href="@{'/editbook/' + ${book.id}}">Edycja</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;

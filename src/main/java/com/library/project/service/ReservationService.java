@@ -1,5 +1,6 @@
 package com.library.project.service;
 
+import com.library.project.exception.ApiRequestException;
 import com.library.project.model.Book;
 import com.library.project.model.Reservation;
 import com.library.project.model.UserEntity;
@@ -21,7 +22,7 @@ public class ReservationService {
     }
 
     public Reservation create(UserEntity userEntity, Book book) {
-        return new Reservation(userEntity, book, ReservationStatus.BOOKED);
+        return new Reservation(userEntity, book, ReservationStatus.ZAREZERWOWANA);
     }
 
     public void save(Reservation reservation) {
@@ -29,15 +30,22 @@ public class ReservationService {
     }
 
     public void updateStatus(long id, ReservationStatus reservationStatus) {
-        Reservation reservation = reservationRepository.getById(id);
-        reservation.setReservationStatus(reservationStatus);
-        if (reservationStatus == ReservationStatus.RETURNED) {
-            UserEntity userEntity = reservation.getUserEntity();
-            userEntity.deleteReservation(reservation);
-            userRepository.save(userEntity);
-            reservation.getBook().setBookStatus(BookStatus.AVAILABLE);
+        try {
 
+
+            Reservation reservation = reservationRepository.getById(id);
+            reservation.setReservationStatus(reservationStatus);
+            if (reservationStatus == ReservationStatus.ZWROCONA) {
+                UserEntity userEntity = reservation.getUserEntity();
+                userEntity.deleteReservation(reservation);
+                userRepository.save(userEntity);
+                reservation.getBook().setBookStatus(BookStatus.DOSTEPNA);
+
+            }
+            reservationRepository.save(reservation);
         }
-        reservationRepository.save(reservation);
+        catch (Exception e){
+            throw new ApiRequestException("Wystąpił błąd podczas aktualizacji statusu książki/przypisywaniu książki użytkownikowi");
+        }
     }
 }

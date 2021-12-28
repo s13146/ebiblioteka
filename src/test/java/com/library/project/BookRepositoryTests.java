@@ -29,7 +29,7 @@ public class BookRepositoryTests {
         book.setTitle("Pan Tadeusz");
         book.setAuthor("Adam Mickiewicz");
         book.setCategory(Category.LEKTURA);
-        book.setBookStatus(BookStatus.AVAILABLE);
+        book.setBookStatus(BookStatus.DOSTEPNA);
 
         Book savedBook = bookRepository.save(book);
         Book existsBook = testEntityManager.find(Book.class,savedBook.getId());

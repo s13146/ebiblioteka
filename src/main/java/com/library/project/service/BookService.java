@@ -17,7 +17,7 @@ public class BookService {
     }
 
     public Book save(Book book) {
-        book.setBookStatus(BookStatus.AVAILABLE);
+        book.setBookStatus(BookStatus.DOSTEPNA);
         return bookRepository.save(book);
     }
 }
