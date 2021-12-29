@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Edit book</title>
-    <link rel="stylesheet" th:href="@{styles/style-edit_book.css}" type="text/css">
+    <link th:href="@{styles/style-edit_book.css}" >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <title>Edit book</title>
 </head>
 <body>
 <header>
@@ -15,7 +15,7 @@
 <div class="content">
     <div class="main">
         <h1>Edycja książki</h1>
-         <form th:action="@{/process_edit_book}" method="post" style="max-width: 600px; margin: 0 auto;" th:object="${book}">
+         <form th:action="@{/process_edit_book}" method="post"  th:object="${book}">
                     <label class="col-form-label col-4">ID książki</label>
                     <div class="col-8">
                         <input type="text" class="form-control" th:field="*{id}" readonly = "readonly"/>
