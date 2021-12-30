@@ -15,11 +15,12 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <h5><span th:text="'Imię:  ' + ${firstname}"/></h5>
+    <h3><a th:href="@{/customer}">home</a></h3>
+    <h5><span th:text="'Imię:  ' + ${user.firstName}"></span></h5>
     <br>
-    <h5><span th:text="'Nazwisko:  ' + ${lastname}"/></h5>
+    <h5><span th:text="'Nazwisko:  ' + ${user.lastName}"></span></h5>
     <br>
-    <h5><span th:text="'Email:  ' + ${email}"/></h5>
+    <h5><span th:text="'Email:  ' + ${user.email}"></span></h5>
 </div>
 <footer>
     <p>Biblioteka PJATK GDAŃSK</p>
