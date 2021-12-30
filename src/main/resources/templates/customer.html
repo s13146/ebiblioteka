@@ -14,11 +14,11 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <h2><span th:text="'Jesteś zalogowany jako:  ' + ${fullname}"/></h2>
+    <h2><span th:text="'Jesteś zalogowany jako:  ' + ${user.firstName} + ' ' + ${user.lastName}"/></h2>
     <div class="main">
         <div class="border">
-            <a th:href="@{/list_user_books}"><img class="option" th:src="@{../images/customer_icon/list.png }"
-                                             alt="Moje książki"/></a>
+            <a th:href="@{/customer/list_user_books}"><img class="option" th:src="@{../images/customer_icon/list.png }"
+                                                  alt="Moje książki"/></a>
             <h2>Moje książki</h2>
         </div>
         <div class="border">
@@ -28,17 +28,18 @@
         </div>
 
         <div class="border">
-            <a th:href="@{/customer_details}"><img class="option" th:src="@{../images/customer_icon/customer.png}"
+            <a th:href="@{/customer/customer_details}"><img class="option" th:src="@{../images/customer_icon/customer.png}"
                                                    alt="Moje dane"/></a>
             <h2>Moje dane</h2>
         </div>
         <div class="border">
-            <a th:href="@{/list_books}"><img class="option" th:src="@{../images/customer_icon/customer.png}"
-                                                   alt="Lista książek biblioteki"/></a>
+            <a th:href="@{/customer/list_books}"><img class="option" th:src="@{../images/customer_icon/customer.png}"
+                                             alt="Lista książek biblioteki"/></a>
             <h2>Lista książek biblioteki</h2>
         </div>
         <div class="border">
-            <form th:action="@{/logout}" method="post"><input type="image" img class="option" th:src="@{../images/customer_icon/logout.png}"
+            <form th:action="@{/logout}" method="post"><input type="image" img class="option"
+                                                              th:src="@{../images/customer_icon/logout.png}"
                                                               alt="Wyloguj się"/></form>
             <h2>Wyloguj się</h2>
         </div>

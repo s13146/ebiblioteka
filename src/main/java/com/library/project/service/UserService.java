@@ -1,11 +1,14 @@
 package com.library.project.service;
 
+import com.library.project.exception.ApiRequestException;
 import com.library.project.model.Book;
 import com.library.project.model.Group;
 import com.library.project.model.Reservation;
 import com.library.project.model.UserEntity;
+import com.library.project.model.enums.BookStatus;
 import com.library.project.repository.UserGroupRepository;
 import com.library.project.repository.UserRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -32,8 +35,7 @@ public class UserService {
 
     public String passwordEncoder(String rawPassword) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String encodedPassword = encoder.encode(rawPassword);
-        return encodedPassword;
+        return encoder.encode(rawPassword);
     }
 
 
@@ -42,16 +44,23 @@ public class UserService {
         userEntity.addUserGroups(group);
     }
 
-    public void addReservation(UserEntity userEntity, Book book){
-        Reservation reservation = reservationService.create(userEntity,book);
+    public void addReservation(UserEntity userEntity, Book book) {
+        try{
 
-        userEntity.addReservation(reservation);
-        reservationService.save(reservation);
+            book.setBookStatus(BookStatus.NIEDOSTEPNA);
+            Reservation reservation = reservationService.create(userEntity, book);
+            userEntity.setReservationsCount(userEntity.getReservationsCount() + 1);
+            userEntity.addReservation(reservation);
+            reservationService.save(reservation);
+            userRepository.save(userEntity);
+        }
+        catch (Exception e){
+            throw new ApiRequestException("Wystąpił błąd przy próbie rezerwacji książki");
+        }
     }
 
-    public UserEntity getCurrentUser(){
+    public UserEntity getCurrentUser() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserEntity userEntity = userRepository.getUserByEmail(((User)principal).getUsername());
-        return userEntity;
+        return userRepository.getUserByEmail(((User) principal).getUsername());
     }
 }

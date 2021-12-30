@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <meta charset="utf-8" />
-    <link th:href="@{/styles/style-index.css}" rel="stylesheet" />
+    <meta charset="utf-8"/>
+    <link th:href="@{/styles/style-index.css}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
@@ -23,28 +23,30 @@
 
     <div class="folder">
         <div class="search">
-            <a th:href="@{/search_book_unlogged}"><img class="search_photo" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/><h2>Wyszukiwarka</h2>
+            <a th:href="@{/search_book_unlogged}"><img class="search_photo" th:src="@{../images/search.png}"
+                                                       alt="Wyszukiwarka książek"/>
+                <h2>Wyszukiwarka</h2>
             </a>
         </div>
     </div>
     <div class="main">
         <h1>Witaj w eBibliotece! Oto nasze najnowsze pozycje.</h1>
         <table>
-                <thead class="headline">
-                <tr>
-                    <th>Tytuł</th>
-                    <th>Autor</th>
-                    <th>Kategoria</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="book: ${listBooks}">
-                    <td th:text="${book.title}">Tytuł</td>
-                    <td th:text="${book.author}">Autor</td>
-                    <td th:text="${book.category}">Kategoria</td>
-                </tr>
-                </tbody>
-            </table>
+            <thead class="headline">
+            <tr>
+                <th>Tytuł</th>
+                <th>Autor</th>
+                <th>Kategoria</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book: ${listBooks}">
+                <td th:text="${book.title}">Tytuł</td>
+                <td th:text="${book.author}">Autor</td>
+                <td th:text="${book.category}">Kategoria</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 <footer>

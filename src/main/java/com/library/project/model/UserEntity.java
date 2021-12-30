@@ -64,6 +64,13 @@ public class UserEntity {
     public UserEntity() {
     }
 
+    public UserEntity(String email, String password, String firstName, String lastName) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public long getId() {
         return id;
     }
@@ -135,7 +142,8 @@ public class UserEntity {
     public void addReservation(Reservation reservation) {
         reservations.add(reservation);
     }
-    public void deleteReservation(Reservation reservation){
+
+    public void deleteReservation(Reservation reservation) {
         reservations.remove(reservation);
     }
 }

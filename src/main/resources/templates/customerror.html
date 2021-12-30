@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <meta charset="utf-8" />
-    <link th:href="@{/styles/style-index.css}" rel="stylesheet" />
+    <meta charset="utf-8"/>
+    <link th:href="@{/styles/style-index.css}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     <img class="logo" th:src="@{images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <div class="main" >
+    <div class="main">
         <h1 th:text="${exception.message}"></h1>
     </div>
     <h3><a th:href="@{/templates/console}">Home</a></h3>

@@ -31,10 +31,9 @@ public class ReservationService {
 
     public void updateStatus(long id, ReservationStatus reservationStatus) {
         try {
-
-
             Reservation reservation = reservationRepository.getById(id);
             reservation.setReservationStatus(reservationStatus);
+
             if (reservationStatus == ReservationStatus.ZWROCONA) {
                 UserEntity userEntity = reservation.getUserEntity();
                 userEntity.deleteReservation(reservation);
@@ -43,8 +42,7 @@ public class ReservationService {
 
             }
             reservationRepository.save(reservation);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw new ApiRequestException("Wystąpił błąd podczas aktualizacji statusu książki/przypisywaniu książki użytkownikowi");
         }
     }

@@ -15,7 +15,7 @@
 <div class="content">
     <div class="main">
         <h1>Edycja książki</h1>
-         <form th:action="@{/process_edit_book}" method="post" style="max-width: 600px; margin: 0 auto;" th:object="${book}">
+         <form th:action="@{/console/process_edit_book}" method="post" style="max-width: 600px; margin: 0 auto;" th:object="${book}">
                     <label class="col-form-label col-4">ID książki</label>
                     <div class="col-8">
                         <input type="text" class="form-control" th:field="*{id}" readonly = "readonly"/>

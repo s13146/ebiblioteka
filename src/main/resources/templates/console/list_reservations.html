@@ -34,7 +34,7 @@
                 <td th:text="${reservation.borrowDate}">Data wypożyczenia</td>
                 <td th:text="${reservation.returnDate}">Data zwrotu</td>
                 <td>
-                    <a th:href="@{'/book_ready/' + ${reservation.id}}">Książka gotowa do odbioru</a>
+                    <a th:href="@{'/console/book_ready/' + ${reservation.id}}">Książka gotowa do odbioru</a>
                 </td>
             </tr>
             </tbody>

@@ -31,9 +31,9 @@
                 <td th:text="${book.category}">Kategoria</td>
                 <td th:text="${book.bookStatus}">Status</td>
                 <td>
-                    <a th:href="@{'/editbook/' + ${book.id}}">Edycja</a>
+                    <a th:href="@{'/console/editbook/' + ${book.id}}">Edycja</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/deletebook/' + ${book.id}}">Usuń</a>
+                    <a th:href="@{'/console/deletebook/' + ${book.id}}">Usuń</a>
                 </td>
             </tr>
             </tbody>

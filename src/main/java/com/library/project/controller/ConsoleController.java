@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
+@RequestMapping("/console")
 public class ConsoleController {
 
     private UserService userService;
@@ -97,10 +98,9 @@ public class ConsoleController {
     @RequestMapping("/delete/{id}")
     public String deleteUserEntity(@PathVariable(name = "id") long id, Model model) {
         UserEntity userEntity = userRepository.getById(id);
-        try{
+        try {
             userRepository.delete(userEntity);
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             throw new ApiRequestException("Wystąpił błąd podczas usuwania użytkownika\nPrawdopodobnie użytkownik ma wypożyczone jakieś książki");
         }
         List<UserEntity> listUsers = userRepository.findAll();
@@ -137,18 +137,15 @@ public class ConsoleController {
     @RequestMapping("/deletebook/{id}")
     public String deleteBook(@PathVariable(name = "id") long id, Model model) {
         Book book = bookRepository.getById(id);
-        try{
+        try {
             bookRepository.delete(book);
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             throw new ApiRequestException("Wystąpił błąd podczas usuwania książki\nPrawdopodobnie książka jest wypożyczona przez użytkownika");
         }
         List<Book> listBooksAdmin = bookRepository.findAll();
         model.addAttribute("listBooksAdmin", listBooksAdmin);
         return "console/list_books_admin";
     }
-
-
 
 
     @GetMapping("/list_reservations")

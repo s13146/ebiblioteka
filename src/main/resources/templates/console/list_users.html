@@ -32,9 +32,9 @@
                 <td th:text="${userEntity.email}">E-mail</td>
                 <td th:text="${userEntity.reservationsCount}">Liczba rezerwacji</td>
                 <td>
-                    <a th:href="@{'/edit/' + ${userEntity.id}}">Edycja</a>
+                    <a th:href="@{'/console/edit/' + ${userEntity.id}}">Edycja</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/delete/' + ${userEntity.id}}">Usuń</a>
+                    <a th:href="@{'/console/delete/' + ${userEntity.id}}">Usuń</a>
                 </td>
             </tr>
             </tbody>

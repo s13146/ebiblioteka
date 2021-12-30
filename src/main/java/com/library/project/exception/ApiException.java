@@ -11,7 +11,6 @@ public class ApiException {
     private final ZonedDateTime timestamp;
 
 
-
     public ApiException(String message, Throwable throwable, HttpStatus httpStatus, ZonedDateTime timestamp) {
         this.message = message;
         this.throwable = throwable;
