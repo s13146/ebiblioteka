@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <meta charset="utf-8"/>
-    <link th:href="@{/styles/style-index.css}" rel="stylesheet"/>
+    <meta charset="utf-8" />
+    <link th:href="@{/styles/style-index.css}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
@@ -12,20 +12,23 @@
 <header>
     <img class="logo" th:src="@{images/logo_tlo.png}" alt="logo"/>
     <div class="login">
-        <a th:href="@{login}"><img class="login_photo" th:src="@{../images/login.png}" alt="Zaloguj się"/>
-            <span class="text_login">Zaloguj się</span>
+        <a th:href="@{login}">
+            <img class="login_photo" th:src="@{../images/login.png}" alt="Zaloguj się"/>
+            <div class="text_describe">
+                <p>Zaloguj się</p>
+            </div>
         </a>
     </div>
 </header>
 
 <div class="content">
-    <h3><a th:href="@{/console}" sec:authorize="hasAnyAuthority('ADMIN')">console</a></h3>
-
     <div class="folder">
         <div class="search">
-            <a th:href="@{/search_book_unlogged}"><img class="search_photo" th:src="@{../images/search.png}"
-                                                       alt="Wyszukiwarka książek"/>
-                <h2>Wyszukiwarka</h2>
+            <a th:href="@{/search_book_unlogged}">
+                <img class="search_photo" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/>
+                <div class="text_describe">
+                    <p>Wyszukiwarka</p>
+                </div>
             </a>
         </div>
     </div>
