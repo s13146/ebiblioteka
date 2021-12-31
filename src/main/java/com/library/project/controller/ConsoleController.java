@@ -127,7 +127,7 @@ public class ConsoleController {
 
     @PostMapping("/process_edit_book")
     public String processEditBook(Book book, Model model) {
-        bookService.save(book);
+        bookRepository.save(book);
         List<Book> listBooksAdmin = bookRepository.findAll();
         model.addAttribute("listBooksAdmin", listBooksAdmin);
         return "console/list_books_admin";

@@ -33,9 +33,33 @@
             <div class="form-group row">
                 <label class="col-form-label col-4">Kategoria</label>
                 <div class="col-8">
-                    <input type="text" class="form-control" th:field="*{category}" required minlength="2"
-                           maxlength="35"/>
+                    <label for="cars2">Kategoria:</label>
+
+                    <select th:field="*{category}" id="cars2">
+                        <option value="OBYCZAJOWA">obyczajowa</option>
+                        <option value="ROMANS">romans</option>
+                        <option value="HORROR">horror</option>
+                        <option value="FANTASY">fantasy</option>
+                        <option value="MŁODZIEŻOWE">młodzieżowa</option>
+                        <option value="LEKTURA">lektura</option>
+                        <option value="KRYMINAŁ">kryminał</option>
+                        <option value="SCIFI">sci-fi</option>
+                    </select>
                 </div>
+
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-4">Status książki</label>
+                <div class="col-8">
+                    <label for="cars3">Status książki:</label>
+
+                    <select th:field="*{bookStatus}" id="cars3">
+                        <option value="DOSTEPNA">Dostępna</option>
+                        <option value="NIEDOSTEPNA">Niedostępna</option>
+                        <option value="ZAGUBIONA">Zagubiona</option>
+                    </select>
+                </div>
+
             </div>
             <button type="submit" class="btn btn-primary">Zapisz</button>
         </form>

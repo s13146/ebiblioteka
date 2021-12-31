@@ -4,6 +4,4 @@ public enum BookStatus {
     DOSTEPNA,
     NIEDOSTEPNA,
     ZAGUBIONA,
-    AVAILABLE,
-    NOTAVAILABLE
 }
