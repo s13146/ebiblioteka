@@ -8,7 +8,6 @@ body{
     padding-top: 3%;
 }
 header {
-    background-color:white;
     display: flex;
     justify-content: center;
     background-color: beige;
@@ -25,8 +24,11 @@ header {
 }
 .main {
     padding: 5%;
-    display: block;
+    display: flex;
     justify-content: center;
+}
+.edit_option {
+    display: flex;
 }
 h2 {
     padding: -10px;
@@ -35,15 +37,6 @@ h2 {
     text-align: center;
 }
 
-.border {
-    border: #47ad96;
-    border-style: double;
-    border-radius: 3px;
-    width: 15%;
-    height: 15%;
-    margin: 10px;
-
-}
 .option {
     width: 80%;
     margin: 0 auto;

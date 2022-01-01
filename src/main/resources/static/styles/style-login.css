@@ -1,18 +1,19 @@
+
 body {
     width: 80%;
-    background-color:white;
-    margin:0 auto;
-    display: block;
-    text-decoration-color: #3f5983;
-    padding: 5%;
+    margin: 0 auto;
+    /* display: block; */
+    /* text-decoration-color: #3f5983; */
+    /* padding: 5%; */
     font-family: 'Roboto', sans-serif;
 }
 header {
-    background-color:#47ad96;
+    background-color: #9edbc8;
     text-align: center;
     display: block;
     height: 15vh;
 }
+
 .logo {
     width: 20%;
 }
@@ -35,15 +36,18 @@ p {
     font-family: 'Roboto';
     font-size: small;
 }
-.login 
-{
-    padding-top: 50px;
+.login {
+    padding: 30px;
     display: block;
     width: 100%;
+    text-align: center;
 }
+button {
+    background-color: #47ad96;
+    }
 footer {
     display: block;
-    background-color:#47ad96;
+    background-color: #9edbc8;
     text-align: center;
     height: 10vh;
     padding: 2%;

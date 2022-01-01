@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
-
 <head>
     <meta charset="UTF-8">
-    <title>Rejestracja</title>
-    <link rel="stylesheet" th:href="@{styles/style-registration.css}" type="text/css">
+    <title>Add book</title>
+    <link rel="stylesheet" th:href="@{/styles/style-registration.css}" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
@@ -13,28 +12,32 @@
 <header>
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
-<form name="log" th:action="@{/console/process_register}" method="post" th:object="${user}">
-    <div class="register">
-        <h1>REJESTRACJA UŻYTKOWNIKA</h1>
-        <div class="register_format">
-            <lable>E-mail</lable>
-            <input type="email" th:field="*{email}" required />
-        </div>
-        <div class=" register_format">
-            <labele>Hasło</labele>
-            <input type="password" th:field="*{password}" required minlength="8" maxlength="10" />
-        </div>
-        <div class=" register_format">
-            <labele>Imię</labele>
-            <input type="text" th:field="*{firstName}" required minlength="2" maxlength="35" />
-        </div>
-        <div class=" register_format">
-            <labele>Nazwisko</labele>
-            <input type="text" th:field="*{lastName}" required minlength="2" maxlength="45" />
-        </div>
-        <button type="submit" class=""> Zarejestruj się</button>
+<div class="content">
+    <h1>REJESTRACJA UŻYTKOWNIKA</h1>
+    <div class="main">
+        <form name="log" th:action="@{/console/process_register}" method="post" th:object="${user}">
+            <div class="register">
+                <div class="register_format">
+                    <lable>E-mail</lable>
+                    <input type="email" th:field="*{email}" required />
+                </div>
+                <div class=" register_format">
+                    <labele>Hasło</labele>
+                    <input type="password" th:field="*{password}" required minlength="8" maxlength="10" />
+                </div>
+                <div class=" register_format">
+                    <labele>Imię</labele>
+                    <input type="text" th:field="*{firstName}" required minlength="2" maxlength="35" />
+                </div>
+                <div class=" register_format">
+                    <labele>Nazwisko</labele>
+                    <input type="text" th:field="*{lastName}" required minlength="2" maxlength="45" />
+                </div>
+                <button type="submit" class=""> Zarejestruj się</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 <footer>
     <p>Biblioteka PJATK GDAŃSK</p>
     <p>93-540 GDAŃSK ul. Brzegi 55 </p>

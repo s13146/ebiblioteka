@@ -5,15 +5,34 @@ body {
     display: block;
     text-decoration-color: #3f5983;
     font-family: 'Roboto', sans-serif;
+    padding-top: 3%;
 }
 header {
-    background-color:#47ad96;
-    text-align: center;
-    display: block;
-    height: 15vh;
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    background-color: beige;
 }
 .logo {
-    width: 20%;
+    width: 50%;
+}
+.content{
+    display: block;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5%;
+    text-align: center;
+}
+.main {
+    padding: 5%;
+    display: block;
+    justify-content: center;
+}
+h2 {
+    padding: -10px;
+    font-family: 'Roboto';
+    font-size: 1em;
+    text-align: center;
 }
 
 .register {
@@ -37,11 +56,9 @@ p {
     font-family: 'Roboto';
     font-size: small;
 }
-
 footer {
     display: block;
-    background-color:#47ad96;
+    background-color:#9edbc8 ;
     text-align: center;
-    height: 10vh;
-    padding: 2%;
+    padding: 1%;
 }
