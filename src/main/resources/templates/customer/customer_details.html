@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-
 <head>
     <meta charset="UTF-8">
     <title>Dane osobowe</title>
@@ -15,12 +14,14 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <h3><a th:href="@{/customer}">home</a></h3>
-    <h5><span th:text="'Imię:  ' + ${user.firstName}"></span></h5>
+    <h1>Moje dane</h1>
+    <div class="main">
+    <h2 class="option" th:text="'Imię:  ' + ${user.firstName}"></h2>
     <br>
-    <h5><span th:text="'Nazwisko:  ' + ${user.lastName}"></span></h5>
+    <h2 class="option" th:text="'Nazwisko:  ' + ${user.lastName}"></h2>
     <br>
-    <h5><span th:text="'Email:  ' + ${user.email}"></span></h5>
+    <h2 class="option" th:text="'Email:  ' + ${user.email}"></h2>
+</div>
 </div>
 <footer>
     <p>Biblioteka PJATK GDAŃSK</p>

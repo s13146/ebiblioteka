@@ -17,7 +17,7 @@ header {
     width: 50%;
 }
 .content{
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 5%;
@@ -45,8 +45,7 @@ h2 {
 
 }
 .option {
-    width: 80%;
-    margin: 0 auto;
+
 }
 h2 {
     padding-left: 5%;

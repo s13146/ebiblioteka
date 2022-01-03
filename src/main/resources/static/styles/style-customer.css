@@ -20,12 +20,11 @@ header {
     text-align: center;
 }
 h2 {
-    padding-left: 5%;
     font-family: 'Roboto';
     font-size: 1em;
 }
 .main {
-    padding: 5%;
+    padding: 3%;
     display: flex;
     justify-content: center;
 }
@@ -38,11 +37,6 @@ h2 {
 .option {
     width: 90%;
 
-}
-h2 {
-    padding-left: 5%;
-    font-family: 'Roboto';
-    font-size: 1em;
 }
 p {
     font-family: 'Roboto';

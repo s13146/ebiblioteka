@@ -28,25 +28,22 @@ header {
     text-align: center;
 }
 h2 {
-    padding: -10px;
     font-family: 'Roboto';
     font-size: 1em;
     text-align: center;
+    font-weight: normal;
 }
 
 .option {
     width: 80%;
     margin: 0 auto;
-}
-.option {
     padding:5px;
 
 }
-h2 {
-    padding-left: 5%;
-    font-family: 'Roboto';
-    font-size: 1em;
+.describe {
+    padding: 4%;
 }
+
 p {
     font-family: 'Roboto';
     font-size: medium;
