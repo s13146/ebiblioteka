@@ -8,7 +8,6 @@ body {
     padding-top: 3%;
 }
 header {
-    background-color:white;
     display: flex;
     justify-content: center;
     background-color: beige;
@@ -16,46 +15,43 @@ header {
 .logo {
     width: 50%;
 }
-.content{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 5%;
+.content {
+    padding: 5% 10% 5% 10%;
     text-align: center;
 }
+.main {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
 h2 {
-    padding: -10px;
-    font-family: 'Roboto';
-    font-size: 1em;
     text-align: center;
+    font-size: 1vw;
 }
 
 .border {
     border: #47ad96;
-    border-style: double;
-    border-radius: 3px;
+    border-style: solid;
+    border-radius: 10px;
     width: 15%;
-    height: 15%;
-    margin: 10px;
+    margin: 15px;
+    padding: 2%;
 }
 .option {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
-h2 {
-    padding-left: 5%;
-    font-family: 'Roboto';
-    font-size: 1em;
-}
+
 p {
     font-family: 'Roboto';
     font-size: medium;
-    font-size: 0.5em;
+    font-size: 0.8vw;
 }
 footer {
     display: block;
     background-color:#9edbc8 ;
     text-align: center;
     padding: 1%;
+    font-size: 0.8vw;
 
 }

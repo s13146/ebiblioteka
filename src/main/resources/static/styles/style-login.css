@@ -1,17 +1,26 @@
 
 body {
+    padding-top:3%;
     width: 80%;
     margin: 0 auto;
-    /* display: block; */
-    /* text-decoration-color: #3f5983; */
-    /* padding: 5%; */
     font-family: 'Roboto', sans-serif;
 }
+
 header {
     background-color: #9edbc8;
-    text-align: center;
-    display: block;
+    display: flex;
     height: 15vh;
+    align-items: center;
+    justify-content: center;
+}
+.content {
+
+}
+.main {
+    justify-content: center;
+    background-color: beige;
+    display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -25,15 +34,19 @@ div {
 }
 .login_format {
     padding: 5%;
+    align-items: center;
+}
+.form-control {
+
+}
+h2{
+    font-size: 1em;
 }
 h1 {
-    padding-top: 5%;
-    font-family: 'Roboto';
     text-align: center;
     font-size: 2em;
 }
 p {
-    font-family: 'Roboto';
     font-size: small;
 }
 .login {

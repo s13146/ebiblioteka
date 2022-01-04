@@ -14,10 +14,8 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <div class="border">
-        <a th:href="@{/}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/></a>
-        <h2>Menu</h2>
-    </div>
+    <h2>Jestes zalogowan jako: </h2>
+    <div class="main">
     <div class="border">
         <a th:href="@{/console/list_users}"><img class="option" th:src="@{../images/admin_icon/icon_users.png }"
                                          alt="List user"/></a>
@@ -58,6 +56,7 @@
                                                           th:src="@{../images/customer_icon/logout.png}"
                                                           alt="Wyloguj się"/></form>
         <h2>Wyloguj się</h2>
+    </div>
     </div>
 </div>
 <footer>

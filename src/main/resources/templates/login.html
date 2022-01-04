@@ -12,24 +12,24 @@
 <header>
     <h1>Witaj w eBibliotece</h1>
 </header>
-<div>
+<div class="content">
     <img class="logo" th:src="@{/images/logo.png}" alt="logo"/>
-    <div>
+    <div class="main">
         <p th:if="${loginError}" class="error">Wrong user or password</p>
         <form name="log" th:action="@{/login}" method="post">
             <div th:if="${param.error}">
-                <div class="alert alert-danger">
+                <div class="alert">
                     Invalid username or password.
                 </div>
             </div>
             <div class="login">
                 <div class="login_format">
-                    <lable>E-mail: </lable>
+                    <h2>E-mail: </h2>
                     <input type="email" class="form-control" id="email" name="username" placeholder="email">
                 </div>
                 <div class="login_format">
-                    <labele>Hasło: </labele>
-                    <input type="password" id="password" name="password" minlength="6" maxlength="10"
+                    <h2>Hasło: </h2>
+                    <input type="password" class="form-control" id="password" name="password" minlength="6" maxlength="10"
                            placeholder="password"/>
                 </div>
                 <button type="submit" class="button"> Zaloguj się</button>
