@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Księgozbiór</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link th:href="@{/styles/style-list_book_taken.css}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <title>Ready list book</title>
 </head>
 <body>
-<div class="container text-center">
-    <div>
-    </div>
-    <div>
-        <h1>Książki wypożyczone</h1>
-    </div>
-    <div>
-        <table class="table table-stripped table-bordered">
-            <thead class="thead-dark">
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
+
+<div class="content">
+    <h2>Lista książek wypożyczonych</h2>
+    <div class="main">
+        <table>
+            <thead class="headline">
             <tr>
                 <th>ID rezerwacji</th>
                 <th>Użytkownik</th>
@@ -42,5 +45,10 @@
         <h3><a th:href="@{/console}" sec:authorize="hasAnyAuthority('ADMIN')">console</a></h3>
     </div>
 </div>
+<footer>
+    <p>Biblioteka PJATK GDAŃSK</p>
+    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
 </body>
 </html>

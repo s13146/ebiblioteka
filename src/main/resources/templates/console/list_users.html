@@ -1,27 +1,33 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Czytelnicy</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link th:href="@{/styles/style-list_user.css}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <title>List users</title>
 </head>
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
 <body>
-<div class="container text-center">
-    <div>
-    </div>
-    <div>
-        <h1>Lista czytelników</h1>
-    </div>
-    <div>
-        <table class="table table-stripped table-bordered">
-            <thead class="thead-dark">
+<div class="content">
+    <h2>Lista użytkowników</h2>
+    <div class="main">
+        <div class="border">
+            <a th:href="@{/console}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/></a>
+            <h2>Menu</h2>
+        </div>
+        <table>
+            <thead class="headline">
             <tr>
                 <th> ID czytelnika</th>
                 <th> Imię</th>
                 <th> Nazwisko</th>
                 <th> E-mail</th>
-                <th> Liczba reserwacji</th>
-                <th> Actions</th>
+                <th> Liczba rezerwacji</th>
+                <th> Akcja</th>
             </tr>
             </thead>
             <tbody>
@@ -33,14 +39,18 @@
                 <td th:text="${userEntity.reservationsCount}">Liczba rezerwacji</td>
                 <td>
                     <a th:href="@{'/console/edit/' + ${userEntity.id}}">Edycja</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <a th:href="@{'/console/delete/' + ${userEntity.id}}">Usuń</a>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-    <h3><a th:href="@{/console}">Home</a></h3>
 </div>
+</div>
+<footer>
+    <p>Biblioteka PJATK GDAŃSK</p>
+    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
 </body>
 </html>

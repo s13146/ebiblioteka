@@ -13,8 +13,8 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
+    <h2>Dodawanie książki</h2>
     <div class="main">
-    <h1>Dodawanie książki</h1>
     <form th:action="@{/console/process_add_book}" method="post"
           style="max-width: 600px; margin: 0 auto;"
           th:object="${book}">
@@ -51,8 +51,8 @@
             <div>
                 <button type="submit" class="btn btn-primary">Dodaj książkę</button>
             </div>
-    </div>
     </form>
+</div>
 </div>
     <footer>
         <p>Biblioteka PJATK GDAŃSK</p>

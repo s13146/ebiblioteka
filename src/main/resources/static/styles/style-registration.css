@@ -8,7 +8,6 @@ body {
     padding-top: 3%;
 }
 header {
-    background-color:white;
     display: flex;
     justify-content: center;
     background-color: beige;
@@ -22,6 +21,7 @@ header {
     justify-content: space-around;
     padding: 5%;
     text-align: center;
+
 }
 .main {
     padding: 5%;
@@ -30,14 +30,12 @@ header {
 }
 h2 {
     padding: -10px;
-    font-family: 'Roboto';
     font-size: 1em;
     text-align: center;
 }
 
 .register {
-    text-align: center;
-    background-color: beige;
+    text-align: left;
     display: block;
     padding: 3%;
 }
@@ -48,12 +46,10 @@ input {
     text-align: left;
 }
 h1 {
-    font-family: 'Roboto';
     text-align: center;
     font-size: 2em;
 }
 p {
-    font-family: 'Roboto';
     font-size: small;
 }
 footer {
