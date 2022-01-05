@@ -4,6 +4,7 @@ body {
     margin:0 auto;
     display: block;
     font-family: 'Roboto', sans-serif;
+    padding-top: 3%;
 }
 header {
     display: flex;
@@ -61,18 +62,16 @@ lable {
 }
 h1 {
     padding-top: 3%;
-    font-family: 'Roboto';
-    font-size: 1em;
+    font-size: 1vw;
     padding-bottom: 5%;
 }
 h2 {
     padding-left: 5%;
-    font-family: 'Roboto';
-    font-size: 0.5em;
+    font-size: 1vw;
 }
 p {
-    font-family: 'Roboto';
-    font-size: medium;
+    font-size: 0.8vw;
+
 }
 
 .folder { 
