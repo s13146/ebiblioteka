@@ -15,7 +15,6 @@
 <div class="content">
     <img class="logo" th:src="@{/images/logo.png}" alt="logo"/>
     <div class="main">
-        <p th:if="${loginError}" class="error">Wrong user or password</p>
         <form name="log" th:action="@{/login}" method="post">
             <div th:if="${param.error}">
                 <div class="alert">

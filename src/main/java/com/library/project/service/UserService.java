@@ -8,7 +8,6 @@ import com.library.project.model.UserEntity;
 import com.library.project.model.enums.BookStatus;
 import com.library.project.repository.UserGroupRepository;
 import com.library.project.repository.UserRepository;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -27,19 +26,28 @@ public class UserService {
         this.reservationService = reservationService;
     }
 
-    public UserEntity save(UserEntity userEntity) {
-        userEntity.setPassword(passwordEncoder(userEntity.getPassword()));
-        updateCustomerGroup(userEntity);
-        return userRepository.save(userEntity);
+    public void setPassword(UserEntity userEntity, String password) {
+        userEntity.setPassword(passwordEncoder(password));
+    }
+    public boolean comparePassword(UserEntity userEntity){
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        UserEntity currentUser = getCurrentUser();
+        if (encoder.matches(userEntity.getPassword(),currentUser.getPassword())) {
+            currentUser.setPassword(passwordEncoder(userEntity.getNewPassword()));
+            userRepository.save(currentUser);
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public String passwordEncoder(String rawPassword) {
+    private String passwordEncoder(String rawPassword) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder.encode(rawPassword);
     }
 
 
-    private void updateCustomerGroup(UserEntity userEntity) {
+    public void updateCustomerGroup(UserEntity userEntity) {
         Group group = groupRepository.findByCode("customer");
         userEntity.addUserGroups(group);
     }

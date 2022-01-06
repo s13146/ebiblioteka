@@ -14,7 +14,7 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <h2><span th:text="'Jesteś zalogowany jako:  ' + ${user.firstName} + ' ' + ${user.lastName}"/></h2>
+    <h2><span th:text="'Jesteś zalogowany jako:  ' + ${user.firstName} + ' ' + ${user.lastName}"></span></h2>
     <div class="main">
         <div class="border">
             <a th:href="@{/customer/list_user_books}"><img class="option" th:src="@{../images/customer_icon/list.png }"
@@ -36,6 +36,11 @@
             <a th:href="@{/list_books}"><img class="option" th:src="@{../images/customer_icon/customer.png}"
                                              alt="Lista książek biblioteki"/></a>
             <h2>Lista książek biblioteki</h2>
+        </div>
+        <div class="border">
+            <a th:href="@{/customer/change_password}"><img class="option" th:src="@{../images/customer_icon/customer.png}"
+                                             alt="Zmień hasło"/></a>
+            <h2>Zmień hasło</h2>
         </div>
         <div class="border">
             <form th:action="@{/logout}" method="post"><input type="image" img class="option"

@@ -50,7 +50,8 @@ public class ConsoleController {
     @PostMapping("/process_register")
     public String processRegistration(UserEntity userEntity) {
         try {
-            userService.save(userEntity);
+            userService.updateCustomerGroup(userEntity);
+            userService.setPassword(userEntity,userEntity.getPassword());
             return "console/process_register";
         } catch (Exception e) {
             throw new ApiRequestException("Wystąpił błąd podczas rejestrowania tego użytkwonika");
@@ -88,7 +89,7 @@ public class ConsoleController {
 
     @PostMapping("/process_edit")
     public String processEditUser(UserEntity userEntity, Model model) {
-        userService.save(userEntity);
+        userService.setPassword(userEntity, userEntity.getPassword());
         List<UserEntity> listUsers = userRepository.findAll();
         model.addAttribute("listUsers", listUsers);
         return "console/list_users";

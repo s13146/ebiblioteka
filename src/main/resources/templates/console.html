@@ -14,49 +14,55 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <h2>Jestes zalogowan jako: </h2>
+    <h2><span th:text="'Jesteś zalogowany jako:  ' + ${user.firstName} + ' ' + ${user.lastName}"></span></h2>
     <div class="main">
-    <div class="border">
-        <a th:href="@{/console/list_users}"><img class="option" th:src="@{../images/admin_icon/icon_users.png }"
-                                         alt="List user"/></a>
-        <h2>Lista użytkowników</h2>
-    </div>
-   <div class="border">
-        <a th:href="@{/console/registration}"><img class="option" th:src="@{../images/admin_icon/icon_add_user.png }"
-                                           alt="Add user"/></a>
-        <h2>Dodaj użytkownika</h2>
-    </div>
-    <div class="border">
-        <a th:href="@{/console/list_books_admin}"><img class="option" th:src="@{../images/admin_icon/icon_books.png }"
-                                               alt="List books"/></a>
-        <h2>Księgozbiór</h2>
-    </div>
-    <div class="border">
-        <a th:href="@{/console/add_book}"><img class="option" th:src="@{../images/admin_icon/icon_add_book.png }"
-                                       alt="Add book"/></a>
-        <h2>Dodaj książkę</h2>
-    </div>
-    <div class="border">
-        <a th:href="@{/console/list_reservations}"><img class="option" th:src="@{../images/admin_icon/icon_reservation.png }"
-                                                alt="Add book"/></a>
-        <h2>Lista zarezerwowanych książek</h2>
-    </div>
-    <div class="border">
-        <a th:href="@{/console/list_book_ready}"><img class="option" th:src="@{../images/admin_icon/icon_ready.png }"
-                                              alt="Add book"/></a>
-        <h2>Lista książek gotowych do odbioru</h2>
-    </div>
-    <div class="border">
-        <a th:href="@{/console/list_book_taken}"><img class="option" th:src="@{../images/admin_icon/icon_share.png }"
-                                              alt="Add book"/></a>
-        <h2>Lista wypożyczonych książek</h2>
-    </div>
-    <div class="border">
-        <form th:action="@{/logout}" method="post"><input type="image" img class="option"
-                                                          th:src="@{../images/customer_icon/logout.png}"
-                                                          alt="Wyloguj się"/></form>
-        <h2>Wyloguj się</h2>
-    </div>
+        <div class="border">
+            <a th:href="@{/console/list_users}"><img class="option" th:src="@{../images/admin_icon/icon_users.png }"
+                                                     alt="List user"/></a>
+            <h2>Lista użytkowników</h2>
+        </div>
+        <div class="border">
+            <a th:href="@{/console/registration}"><img class="option"
+                                                       th:src="@{../images/admin_icon/icon_add_user.png }"
+                                                       alt="Add user"/></a>
+            <h2>Dodaj użytkownika</h2>
+        </div>
+        <div class="border">
+            <a th:href="@{/console/list_books_admin}"><img class="option"
+                                                           th:src="@{../images/admin_icon/icon_books.png }"
+                                                           alt="List books"/></a>
+            <h2>Księgozbiór</h2>
+        </div>
+        <div class="border">
+            <a th:href="@{/console/add_book}"><img class="option" th:src="@{../images/admin_icon/icon_add_book.png }"
+                                                   alt="Add book"/></a>
+            <h2>Dodaj książkę</h2>
+        </div>
+        <div class="border">
+            <a th:href="@{/console/list_reservations}"><img class="option"
+                                                            th:src="@{../images/admin_icon/icon_reservation.png }"
+                                                            alt="Add book"/></a>
+            <h2>Lista zarezerwowanych książek</h2>
+        </div>
+        <div class="border">
+            <a th:href="@{/console/list_book_ready}"><img class="option"
+                                                          th:src="@{../images/admin_icon/icon_ready.png }"
+                                                          alt="Add book"/></a>
+            <h2>Lista książek gotowych do odbioru</h2>
+        </div>
+        <div class="border">
+            <a th:href="@{/console/list_book_taken}"><img class="option"
+                                                          th:src="@{../images/admin_icon/icon_share.png }"
+                                                          alt="Add book"/></a>
+            <h2>Lista wypożyczonych książek</h2>
+        </div>
+
+        <div class="border">
+            <form th:action="@{/logout}" method="post"><input type="image" img class="option"
+                                                              th:src="@{../images/customer_icon/logout.png}"
+                                                              alt="Wyloguj się"/></form>
+            <h2>Wyloguj się</h2>
+        </div>
     </div>
 </div>
 <footer>

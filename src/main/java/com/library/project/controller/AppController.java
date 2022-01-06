@@ -29,7 +29,8 @@ public class AppController {
 
 
     @GetMapping("/console")
-    public String viewConsole() {
+    public String viewConsole(Model model) {
+        model.addAttribute("user", userService.getCurrentUser());
         return "console";
     }
 

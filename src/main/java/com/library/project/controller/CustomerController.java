@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -58,7 +59,22 @@ public class CustomerController {
 
     @GetMapping("/customer_details")
     public String viewCustomerDetails(Model model) {
+
         model.addAttribute("user", userService.getCurrentUser());
         return "customer/customer_details";
+    }
+
+    @GetMapping("/change_password")
+    public String changePassword(Model model){
+        model.addAttribute("userEntity", userService.getCurrentUser());
+        return "customer/change_password";
+    }
+
+    @PostMapping("/process_change_password")
+    public String processEditUser(UserEntity userEntity) {
+        if (userService.comparePassword(userEntity))
+            return "customer/process_change_password";
+        else
+            return "customer/change_password_fail";
     }
 }

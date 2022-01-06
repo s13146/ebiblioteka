@@ -18,6 +18,8 @@ public class UserEntity {
     private String email;
     @Column(nullable = false, length = 64)
     private String password;
+    @Transient
+    private String newPassword;
     @Column(nullable = false, length = 35)
     private String firstName;
     @Column(nullable = false, length = 45)
@@ -145,5 +147,13 @@ public class UserEntity {
 
     public void deleteReservation(Reservation reservation) {
         reservations.remove(reservation);
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 }

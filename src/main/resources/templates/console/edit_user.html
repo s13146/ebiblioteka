@@ -4,13 +4,15 @@
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <meta charset="UTF-8">
     <title>Edycja użytkownika</title>
+
 </head>
 
 <body>
 
 <div class="container text-center">
     <h1>Edycja użytkownika</h1>
-    <form th:action="@{/console/process_edit}" method="post"
+    <form
+            th:action="@{/console/process_edit}" method="post"
           style="max-width: 600px; margin: 0 auto;"
           th:object="${userEntity}"
 
@@ -25,27 +27,20 @@
             <div class="form-group row">
                 <label class="col-form-label col-4">E-mail</label>
                 <div class="col-8">
-                    <input type="email" class="form-control" th:field="*{email}" required/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-4">Hasło</label>
-                <div class="col-8">
-                    <input type="password" class="form-control" th:field="*{password}" required minlength="8"
-                           maxlength="64"/>
+                    <input type="email" class="form-control" th:field="*{email}" required="required"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-4">Imie</label>
                 <div class="col-8">
-                    <input type="text" class="form-control" th:field="*{firstName}" required minlength="2"
+                    <input type="text" class="form-control" th:field="*{firstName}" required="required" minlength="2"
                            maxlength="35"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-4">Nazwisko</label>
                 <div class="col-8">
-                    <input type="text" class="form-control" th:field="*{lastName}" required minlength="2"
+                    <input type="text" class="form-control" th:field="*{lastName}" required="required" minlength="2"
                            maxlength="45"/>
                 </div>
             </div>
