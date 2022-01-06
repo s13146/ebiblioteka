@@ -52,6 +52,7 @@ public class ConsoleController {
         try {
             userService.updateCustomerGroup(userEntity);
             userService.setPassword(userEntity,userEntity.getPassword());
+            userRepository.save(userEntity);
             return "console/process_register";
         } catch (Exception e) {
             throw new ApiRequestException("Wystąpił błąd podczas rejestrowania tego użytkwonika");
