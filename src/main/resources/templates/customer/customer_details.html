@@ -14,18 +14,21 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <h1>Moje dane</h1>
+    <div class="border">
+        <a th:href="@{/customer}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/></a>
+        <h3>Strona główna</h3>
+    </div>
     <div class="main">
-    <h2 class="option" th:text="'Imię:  ' + ${user.firstName}"></h2>
+        <h2>Moje dane</h2>
+    <h3 class="option" th:text="'Imię:  ' + ${user.firstName}"></h3>
     <br>
-    <h2 class="option" th:text="'Nazwisko:  ' + ${user.lastName}"></h2>
+    <h3 class="option" th:text="'Nazwisko:  ' + ${user.lastName}"></h3>
     <br>
-    <h2 class="option" th:text="'Email:  ' + ${user.email}"></h2>
+    <h3 class="option" th:text="'Email:  ' + ${user.email}"></h3>
 </div>
 </div>
 <footer>
-    <p>Biblioteka PJATK GDAŃSK</p>
-    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
     <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
 </footer>
 </body>

@@ -14,7 +14,7 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <h2><span th:text="'Jesteś zalogowany jako:  ' + ${user.firstName} + ' ' + ${user.lastName}"></span></h2>
+    <h3 th:text="'Jesteś zalogowany jako:  ' + ${user.firstName} + ' ' + ${user.lastName}"></h3>
     <div class="main">
         <div class="border">
             <a th:href="@{/customer/list_user_books}"><img class="option" th:src="@{../images/customer_icon/list.png }"
@@ -52,8 +52,7 @@
     </div>
 </div>
 <footer>
-    <p>Biblioteka PJATK GDAŃSK</p>
-    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
     <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
 </footer>
 </body>

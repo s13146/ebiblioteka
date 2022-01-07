@@ -8,7 +8,6 @@ body{
     padding-top: 3%;
 }
 header {
-    background-color:white;
     display: flex;
     justify-content: center;
     background-color: beige;
@@ -28,14 +27,18 @@ header {
     text-align: center;
 }
 h2 {
-    font-family: 'Roboto';
-    font-size: 1em;
+    font-size: 1vw;
     text-align: center;
     font-weight: normal;
 }
-
+.search {
+    margin: 0 auto;
+}
+.container {
+    display: flex;
+}
 .option {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     padding:5px;
 
@@ -45,9 +48,20 @@ h2 {
 }
 
 p {
-    font-family: 'Roboto';
-    font-size: medium;
-    font-size: 0.5em;
+    font-size: 0.8vw;
+}
+.border {
+    border: #47ad96;
+    border-style: double;
+    border-radius: 3px;
+    width: 15%;
+    height: 15%;
+    margin-left: -5%;
+    margin-right: 5%;
+}
+.option {
+    width: 80%;
+    margin: 0 auto;
 }
 footer {
     display: block;

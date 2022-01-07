@@ -13,29 +13,23 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="main">
-    <h2>Wyszukiwarka książek</h2>
     <div class="container">
-    <h3><a th:href="@{/}">Home</a></h3>
-    <form th:action="@{/search_result}" method="post"
-          style="max-width: 600px; margin: 0 auto;">
-        <div class="m-3">
-            <div class="form-group row">
-                <label class="col-form-label col-4">Wpisz nazwę książki, autora lub kategorię której szukasz:</label>
-                <div class="col-8">
-                    <input type="text" class="form-control" th:value="${name}" name="name" required/>
-                </div>
-            </div>
-
+        <div class="border">
+            <a th:href="@{/}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/></a>
+            <h2>Strona główna</h2>
         </div>
-        <div>
-            <button type="submit" class="btn btn-primary">Szukaj</button>
+        <div class="search">
+            <h3>Wyszukiwarka książek</h3>
+            <form th:action="@{/search_result}" method="post">
+                <h2>Wpisz nazwę książki, autora lub kategorię której szukasz:</h2>
+                    <input type="text" class="form-control" th:value="${name}" name="name" required/>
+                    <button type="submit" class="btn btn-primary">Szukaj</button>
         </div>
     </form>
-</div>
+    </div>
 </div>
 <footer>
-    <p>Biblioteka PJATK GDAŃSK</p>
-    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
     <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
 </footer>
 </body>

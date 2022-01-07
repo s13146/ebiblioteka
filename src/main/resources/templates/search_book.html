@@ -12,12 +12,16 @@
 <header>
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
-<div class="main">
-    <h3>Wyszukiwarka książek</h3>
-    <div class="container">
+<div class="content">
+    <div class="border">
+        <a th:href="@{/customer}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/></a>
+        <h3>Strona główna</h3>
+    </div>
+    <div class="main">
+        <h2>Wyszukiwarka książek</h2>
         <form th:action="@{/search_result}" method="post" style="max-width: 600px; margin: 0 auto;">
-            <div class="option">
-                <h2>Wpisz nazwę książki, autora lub kategorię której szukasz:</h2>
+            <div class="search">
+                <h3>Wpisz nazwę książki, autora lub kategorię której szukasz:</h3>
                 <input type="text" class="form-control" th:value="${name}" name="name" required/>
                 <button type="submit" class="button">Szukaj</button>
             </div>
@@ -25,8 +29,7 @@
     </div>
 </div>
 <footer>
-    <p>Biblioteka PJATK GDAŃSK</p>
-    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
     <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
 </footer>
 </body>
