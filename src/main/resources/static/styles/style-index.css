@@ -27,47 +27,36 @@ header {
 a {
     text-decoration: none;
     color:black;
-    font-size: 0.8em;
+    font-size: 0.6vm;
 }
 
-a:hover {
-    text-decoration: none;
-    color:black;
-    font-size: 1em;
-}
+
 .login_photo{
     width:35%;
     margin-left: 40%;
 }
+.login_photo:hover {
+    width:36%;
+}
 .login_format {
     height: 10%;
 }
-button {
-    height: 50%;
-    width: 30%;
-    font-size: 10px;
-}
+
 input { 
     height: 50%;
     width: 50%;
-    font-size: 10px;
+    font-size: 10vm;
 }
-lable {
-    font-size: 10px;
-}
+
 .content{
     background-color: white;
     display: flex;
     height: auto;
 }
-h1 {
-    padding-top: 3%;
-    font-size: 1vw;
-    padding-bottom: 5%;
-}
+
 h2 {
     padding-left: 5%;
-    font-size: 1vw;
+    font-size: 1.2vw;
 }
 p {
     font-size: 0.8vw;
@@ -96,34 +85,21 @@ p {
     width: 100%;
 
 }
-input[type=text] {
-    width: 100px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 12px;
-    background-color: white;
-    padding: 12px 20px 12px 40px;
-    transition: width 0.4s ease-in-out;
-  }
-  
-input[type=text]:focus {
-    width: 100%;
-}
+
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 5%;
 }
 .headline {
     background-color: #9edbc8 ;
-    font-family: 'Roboto';
     font-size: medium;
 }
 
 th, td {
     text-align: left;
     padding: 8px;
-    font-size: 10px;
+    font-size: 1vw;
 }
 tr:nth-child(even) {background-color: beige;}
 tr {

@@ -1,11 +1,9 @@
-
 body {
     padding-top:3%;
     width: 80%;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
 }
-
 header {
     background-color: #9edbc8;
     display: flex;
@@ -40,14 +38,14 @@ div {
 
 }
 h2{
-    font-size: 1em;
+    font-size: 1vw;
 }
 h1 {
     text-align: center;
-    font-size: 2em;
+    font-size: 4vw;
 }
 p {
-    font-size: small;
+    font-size: 0.8vw;
 }
 .login {
     padding: 30px;

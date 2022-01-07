@@ -1,4 +1,4 @@
-body {
+body{
     width: 80%;
     background-color:white;
     margin:0 auto;
@@ -25,33 +25,25 @@ header {
 }
 .main {
     padding: 5%;
-    display: block;
-    justify-content: center;
+    text-align: center;
 }
 h2 {
-    padding: -10px;
     font-family: 'Roboto';
     font-size: 1em;
     text-align: center;
+    font-weight: normal;
 }
 
-.border {
-    border: #47ad96;
-    border-style: double;
-    border-radius: 3px;
-    width: 15%;
-    height: 15%;
-    margin: 10px;
-
-}
 .option {
     width: 80%;
     margin: 0 auto;
+    padding:5px;
+
 }
-h2 {
-    padding-left: 5%;
-    font-size: 1em;
+.describe {
+    padding: 4%;
 }
+
 p {
     font-family: 'Roboto';
     font-size: medium;

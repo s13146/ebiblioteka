@@ -8,7 +8,6 @@ body {
     padding-top: 3%;
 }
 header {
-    background-color:white;
     display: flex;
     justify-content: center;
     background-color: beige;
@@ -20,7 +19,6 @@ header {
     text-align: center;
 }
 h2 {
-    font-family: 'Roboto';
     font-size: 1vw;
 }
 .main {
@@ -41,7 +39,7 @@ h2 {
 p {
     font-family: 'Roboto';
     font-size: medium;
-    font-size: 0.5em;
+    font-size: 0.8vw;
 }
 footer {
     display: block;
