@@ -13,18 +13,20 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
+    <h1>Pomyślnie dodano książkę</h1>
     <div class="main">
-        <h1>Pomyślnie dodano książkę</h1>
         <div class="border">
             <a th:href="@{/console/add_book}"><img class="option" th:src="@{../images/admin_icon/icon_add_book.png }" alt="Add book"/></a>
             <h2>Dodaj książkę</h2>
         </div>
-    <h3><a th:href="@{/console}">Home</a></h3>
+        <div class="border">
+            <a th:href="@{/console}"><img class="option" th:src="@{../images/admin_icon/console_icon.png }" alt="Consola"/></a>
+            <h2>Menu</h2>
+        </div>
     </div>
 </div>
 <footer>
-    <p>Biblioteka PJATK GDAŃSK</p>
-    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
     <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
 </footer>
 </body>
