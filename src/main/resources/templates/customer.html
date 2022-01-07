@@ -22,6 +22,11 @@
             <h2>Moje książki</h2>
         </div>
         <div class="border">
+            <a th:href="@{/list_books}"><img class="option" th:src="@{../images/admin_icon/icon_books.png}"
+                                             alt="Lista książek biblioteki"/></a>
+            <h2>Lista książek biblioteki</h2>
+        </div>
+        <div class="border">
             <a th:href="@{/search_book}"><img class="option" th:src="@{../images/customer_icon/search.png}"
                                               alt="Wyszukiwarka książek"/></a>
             <h2>Wyszukaj książkę</h2>
@@ -32,13 +37,9 @@
                                                    alt="Moje dane"/></a>
             <h2>Moje dane</h2>
         </div>
+
         <div class="border">
-            <a th:href="@{/list_books}"><img class="option" th:src="@{../images/customer_icon/customer.png}"
-                                             alt="Lista książek biblioteki"/></a>
-            <h2>Lista książek biblioteki</h2>
-        </div>
-        <div class="border">
-            <a th:href="@{/customer/change_password}"><img class="option" th:src="@{../images/customer_icon/customer.png}"
+            <a th:href="@{/customer/change_password}"><img class="option" th:src="@{../images/customer_icon/password_icon.png}"
                                              alt="Zmień hasło"/></a>
             <h2>Zmień hasło</h2>
         </div>
