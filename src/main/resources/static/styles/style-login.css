@@ -35,7 +35,7 @@ div {
     align-items: center;
 }
 .form-control {
-
+display: block;
 }
 h2{
     font-size: 1vw;
@@ -52,6 +52,10 @@ p {
     display: block;
     width: 100%;
     text-align: center;
+}
+a {
+    text-decoration: none;
+    color:black;
 }
 button {
     background-color: #47ad96;
