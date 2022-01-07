@@ -12,10 +12,13 @@
 <header>
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
-
 <div class="content">
-    <h2>Książki zarezerwowane</h2>
+    <div class="border">
+        <a th:href="@{/console}" sec:authorize="hasAnyAuthority('ADMIN')"><img class="option" th:src="@{../images/admin_icon/console_icon.png }" alt="Consola"/></a>
+        <h2>Menu</h2>
+    </div>
     <div class="main">
+        <h2>Książki zarezerwowane</h2>
         <table>
             <thead class="headline">
             <tr>
@@ -25,6 +28,8 @@
                 <th>Status wypożyczenia</th>
                 <th>Data wypożyczenia</th>
                 <th>Data zwrotu</th>
+                <th>Akcja</th>
+
 
             </tr>
             </thead>
@@ -42,12 +47,10 @@
             </tr>
             </tbody>
         </table>
-        <h3><a th:href="@{/console}" sec:authorize="hasAnyAuthority('ADMIN')">console</a></h3>
     </div>
 </div>
         <footer>
-            <p>Biblioteka PJATK GDAŃSK</p>
-            <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+            <p>Biblioteka PJATK GDAŃSK93-540 GDAŃSK ul. Brzegi 55 </p>
             <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
         </footer>
 </body>

@@ -16,17 +16,17 @@ header {
     width: 50%;
 }
 .content {
-    display: block;
+    display: flex;
     text-align: center;
-    padding: 5%;
 }
 .main {
     padding: 0 5% 5% 5%;
     display: block;
     text-align: center;
+    width: 100%;
 }
 h2 {
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: center;
 }
 
@@ -62,9 +62,7 @@ tr {
     width: 100%;
 }
 p {
-    font-family: 'Roboto';
-    font-size: medium;
-    font-size: 0.5em;
+    font-size: 0.8vw;
 }
 footer {
     display: block;

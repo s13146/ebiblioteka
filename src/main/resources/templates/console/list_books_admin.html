@@ -14,8 +14,12 @@
 </header>
 
 <div class="content">
-        <h2>Nasz księgozbiór</h2>
+    <div class="border">
+        <a th:href="@{/console}"><img class="option" th:src="@{../images/admin_icon/console_icon.png }" alt="Consola"/></a>
+        <h2>Menu</h2>
+    </div>
     <div class="main">
+        <h2>Nasz księgozbiór</h2>
         <table>
             <thead class="headline">
             <tr>
@@ -42,12 +46,10 @@
             </tr>
             </tbody>
         </table>
-        <h3><a th:href="@{/console}">Home</a></h3>
     </div>
 </div>
 <footer>
-    <p>Biblioteka PJATK GDAŃSK</p>
-    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
     <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
 </footer>
 </body>
