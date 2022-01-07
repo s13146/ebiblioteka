@@ -71,4 +71,27 @@ public class UserService {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return userRepository.getUserByEmail(((User) principal).getUsername());
     }
+
+    public void updateResetPasswordToken(String token, String email){
+        UserEntity userEntity = userRepository.getUserByEmail(email);
+        if (userEntity != null) {
+            userEntity.setResetPasswordToken(token);
+            userRepository.save(userEntity);
+        } else {
+            throw new ApiRequestException("Could not find any customer with the email " + email);
+        }
+    }
+
+    public UserEntity getByResetPasswordToken(String token) {
+        return userRepository.findByResetPasswordToken(token);
+    }
+
+    public void updatePassword(UserEntity userEntity, String newPassword) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(newPassword);
+        userEntity.setPassword(encodedPassword);
+
+        userEntity.setResetPasswordToken(null);
+        userRepository.save(userEntity);
+    }
 }

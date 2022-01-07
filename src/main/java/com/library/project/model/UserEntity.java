@@ -26,6 +26,8 @@ public class UserEntity {
     private String lastName;
     @Column(nullable = false)
     private boolean isEnabled;
+    @Column(nullable = true, length = 30)
+    private String resetPasswordToken;
     @Column(columnDefinition = "integer default 0")
     private int reservationsCount;
 
@@ -155,5 +157,13 @@ public class UserEntity {
 
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
+    }
+
+    public String getResetPasswordToken() {
+        return resetPasswordToken;
+    }
+
+    public void setResetPasswordToken(String resetPasswordToken) {
+        this.resetPasswordToken = resetPasswordToken;
     }
 }
