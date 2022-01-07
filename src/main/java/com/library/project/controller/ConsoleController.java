@@ -1,5 +1,6 @@
 package com.library.project.controller;
 
+import com.library.project.email.MailService;
 import com.library.project.exception.ApiRequestException;
 import com.library.project.model.Book;
 import com.library.project.model.Reservation;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 
 import java.util.List;
 
@@ -31,14 +34,18 @@ public class ConsoleController {
     private BookRepository bookRepository;
     private ReservationService reservationService;
     private ReservationRepository reservationRepository;
+    private com.library.project.email.MailService mailService;
+    private TemplateEngine templateEngine;
 
-    public ConsoleController(UserService userService, UserRepository userRepository, BookService bookService, BookRepository bookRepository, ReservationService reservationService, ReservationRepository reservationRepository) {
+    public ConsoleController(UserService userService, UserRepository userRepository, BookService bookService, BookRepository bookRepository, ReservationService reservationService, ReservationRepository reservationRepository, com.library.project.email.MailService mailService, TemplateEngine templateEngine) {
         this.userService = userService;
         this.userRepository = userRepository;
         this.bookService = bookService;
         this.bookRepository = bookRepository;
         this.reservationService = reservationService;
         this.reservationRepository = reservationRepository;
+        this.mailService = mailService;
+        this.templateEngine = templateEngine;
     }
 
     @GetMapping("/registration")
@@ -49,14 +56,19 @@ public class ConsoleController {
 
     @PostMapping("/process_register")
     public String processRegistration(UserEntity userEntity) {
-        try {
-            userService.updateCustomerGroup(userEntity);
-            userService.setPassword(userEntity,userEntity.getPassword());
-            userRepository.save(userEntity);
-            return "console/process_register";
-        } catch (Exception e) {
-            throw new ApiRequestException("Wystąpił błąd podczas rejestrowania tego użytkwonika");
-        }
+        userService.updateCustomerGroup(userEntity);
+        userService.setPassword(userEntity, userEntity.getPassword());
+        userRepository.save(userEntity);
+
+        Context context = new Context();
+        context.setVariable("header", "header");
+        context.setVariable("title", "Twoje konto w eBibliotece");
+        context.setVariable("description", userEntity.getFirstName() + " " + userEntity.getLastName());
+        String body = templateEngine.process("email/registration_template", context);
+        mailService.sendEmail(userEntity.getEmail(), "eBiblioteka", body);
+
+        return "console/process_register";
+
 
     }
 
