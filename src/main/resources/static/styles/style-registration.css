@@ -16,24 +16,32 @@ header {
     width: 50%;
 }
 .content{
-    display: block;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 5%;
+    display: flex;
     text-align: center;
 
 }
 .main {
-    padding: 5%;
+    padding: 0 5% 5% 5%;
     display: block;
-    justify-content: center;
+    width: 100%;
 }
 h2 {
-    padding: -10px;
-    font-size: 1em;
+    font-size: 1.5vw;
     text-align: center;
 }
+.border {
+    border: #47ad96;
+    border-style: double;
+    border-radius: 3px;
+    width: 15%;
+    height: 15%;
+    margin: 10px;
 
+}
+.option {
+    width: 80%;
+    margin: 0 auto;
+}
 .register {
     text-align: left;
     display: block;
@@ -45,12 +53,9 @@ h2 {
 input {
     text-align: left;
 }
-h1 {
-    text-align: center;
-    font-size: 2em;
-}
+
 p {
-    font-size: small;
+    font-size: 0.8vw;
 }
 footer {
     display: block;
