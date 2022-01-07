@@ -21,8 +21,8 @@ public class MailService {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
             helper.setTo(to);
-            helper.setReplyTo("ebiblioteka785@outlook.com");
-            helper.setFrom("ebiblioteka785@outlook.com");
+            helper.setReplyTo("ebiblioteka765@outlook.com");
+            helper.setFrom("ebiblioteka765@outlook.com");
             helper.setSubject(title);
             helper.setText(content, true);
         } catch (MessagingException e) {
