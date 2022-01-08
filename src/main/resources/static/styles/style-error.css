@@ -16,17 +16,21 @@ header {
     width: 50%;
 }
 .content{
-    background-color: white;
-    display: block;
-    height: 30vh;
+    display: flex;
     text-align: center;
-    padding-bottom: 5%;
 }
 .main {
     padding: 0 5% 5% 5%;
-    text-align: center;
-    display: flex;
+    display: block;
     justify-content: center;
+    width: 100%;
+}
+h2 {
+    font-size: 1.5vw;
+    text-align: center;
+}
+h3 {
+    font-size: 1vw;
 }
 
 .border {
@@ -34,25 +38,21 @@ header {
     border-style: double;
     border-radius: 3px;
     width: 15%;
+    height: 15%;
     margin: 10px;
+
 }
 .option {
     width: 80%;
     margin: 0 auto;
 }
-h2 {
-    padding-left: 5%;
-    font-size: 1em;
-}
+
 p {
-    font-family: 'Roboto';
-    font-size: medium;
-    font-size: 0.5em;
+    font-size: 0.8vw;
 }
 footer {
     display: block;
     background-color:#9edbc8 ;
     text-align: center;
     padding: 1%;
-
 }

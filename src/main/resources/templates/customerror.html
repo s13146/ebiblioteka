@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
     <meta charset="utf-8"/>
-    <link th:href="@{/styles/style-index.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/style-error.css}" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
@@ -10,13 +10,16 @@
 </head>
 <body>
 <header>
-    <img class="logo" th:src="@{images/logo_tlo.png}" alt="logo"/>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <div class="main">
-        <h1 th:text="${exception.message}"></h1>
+    <div class="border">
+        <a th:href="@{/customer}"><img class="option" th:src="@{/images/admin_icon/icon_home.png }" alt="Consola"/></a>
+        <h3>Strona główna</h3>
     </div>
-    <h3><a th:href="@{/templates/console}">Home</a></h3>
+    <div class="main">
+        <h2 th:text="${exception.message}"></h2>
+    </div>
 </div>
 <footer>
     <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>

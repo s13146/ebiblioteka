@@ -8,7 +8,6 @@ body {
     padding-top: 3%;
 }
 header {
-    background-color:white;
     display: flex;
     justify-content: center;
     background-color: beige;
@@ -17,22 +16,21 @@ header {
     width: 50%;
 }
 .content{
-    display: block;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 5%;
+    display: flex;
     text-align: center;
 }
 .main {
-    padding: 5%;
+    padding: 0 5% 5% 5%;
     display: block;
     justify-content: center;
+    width: 100%;
 }
 h2 {
-    padding: -10px;
-    font-family: 'Roboto';
-    font-size: 1em;
+    font-size: 1.5vw;
     text-align: center;
+}
+h3 {
+    font-size: 1vw;
 }
 
 .border {
@@ -48,17 +46,12 @@ h2 {
     width: 80%;
     margin: 0 auto;
 }
-h2 {
-    padding-left: 5%;
-    font-family: 'Roboto';
-    font-size: 1em;
-}table {
+table {
      border-collapse: collapse;
      width: 100%;
  }
 .headline {
     background-color: #9edbc8 ;
-    font-family: 'Roboto';
     font-size: medium;
 }
 
@@ -72,9 +65,7 @@ tr {
     width: 100%;
 }
 p {
-    font-family: 'Roboto';
-    font-size: medium;
-    font-size: 0.5em;
+    font-size: 0.8vw;
 }
 footer {
     display: block;

@@ -12,9 +12,13 @@
 <header>
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
+<div class="content">
+    <div class="border">
+        <a th:href="@{/customer}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/></a>
+        <h3>Strona główna</h3>
+    </div>
 <div class="main">
-    <h1>Wyniki wyszukiwania</h1>
-    <div>
+    <h2>Wyniki wyszukiwania</h2>
         <table>
             <thead class="headline">
             <tr>
@@ -23,7 +27,7 @@
                 <th> Autor</th>
                 <th> Kategoria</th>
                 <th> Czy jest dostępna</th>
-                <th>   </th>
+                <th> Akcja</th>
             </tr>
             </thead>
             <tbody>
