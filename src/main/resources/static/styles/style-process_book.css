@@ -1,3 +1,4 @@
+
 body {
     width: 80%;
     background-color:white;
@@ -15,17 +16,26 @@ header {
 .logo {
     width: 50%;
 }
-.content {
-    display: flex;
+.content{
+    display: block;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5%;
     text-align: center;
 }
 .main {
-    padding: 0 5% 5% 5%;
-    display: block;
-    text-align: center;
-    width: 100%;
+    padding: 5%;
+    display: flex;
+    justify-content: center;
 }
+h2 {
 
+    font-size: 1.5vw;
+    text-align: center;
+}
+h3 {
+    font-size: 1vw;
+}
 
 .border {
     border: #47ad96;
@@ -40,31 +50,9 @@ header {
     width: 80%;
     margin: 0 auto;
 }
-h2 {
-    font-size: 1.5vw;
-}
-h3 {
-    font-size: 1vw;
-}
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-.headline {
-    background-color: #9edbc8 ;
-    font-size: medium;
-}
 
-th, td {
-    text-align: left;
-    padding: 8px;
-    font-size: 10px;
-}
-tr:nth-child(even) {background-color: beige;}
-tr {
-    width: 100%;
-}
 p {
+
     font-size: 0.8vw;
 }
 footer {

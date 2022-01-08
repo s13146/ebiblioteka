@@ -16,19 +16,16 @@ header {
     width: 50%;
 }
 .content {
-    display: block;
+    display: flex;
     text-align: center;
 }
 .main {
     padding: 0 5% 5% 5%;
     display: block;
     text-align: center;
+    width: 100%;
 }
-h2 {
-    padding: -10px;
-    font-size: 1em;
-    text-align: center;
-}
+
 
 .border {
     border: #47ad96;
@@ -44,7 +41,9 @@ h2 {
     margin: 0 auto;
 }
 h2 {
-    padding-left: 5%;
+    font-size: 1.5vw;
+}
+h3 {
     font-size: 1vw;
 }
 table {
@@ -66,9 +65,8 @@ tr {
     width: 100%;
 }
 p {
-    font-family: 'Roboto';
-    font-size: medium;
-    font-size: 0.5em;
+
+    font-size: 0.8vw;
 }
 footer {
     display: block;
