@@ -125,6 +125,7 @@ public class ConsoleController {
         } else if (userEntity.getReservationsCount() != 0) {
             throw new ApiRequestException("Użytkownik ma na stanie ksiązki");
         }
+        userRepository.delete(userEntity);
         List<UserEntity> listUsers = userRepository.findAll();
         model.addAttribute("listUsers", listUsers);
         return "console/list_users";
