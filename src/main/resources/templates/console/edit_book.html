@@ -20,19 +20,19 @@
     <div class="main">
     <h2>Edycja książki</h2>
     <form class="edit_option"  th:action="@{/console/process_edit_book}" method="post"  th:object="${book}">
-            <div class="option">
+            <div class="edit_part">
                 <label >ID książki</label>
                 <input type="text" class="form-control" th:field="*{id}" readonly = "readonly"/>
             </div>
-            <div class="option">
+            <div class="edit_part">
                 <label >Tytuł</label>
                 <input type="text" class="form-control" th:field="*{title}" required/>
             </div>
-            <div class="option">
+            <div class="edit_part">
                 <label >Autor</label>
                 <input type="text" class="form-control" th:field="*{author}" required minlength="8" maxlength="64"/>
             </div>
-            <div class="option">
+            <div class="edit_part">
                     <label for="cars2">Kategoria:</label>
 
                     <select th:field="*{category}" id="cars2">
@@ -47,7 +47,7 @@
                     </select>
             </div>
 
-            <div class="option">
+            <div class="edit_part">
                     <label for="cars3">Status książki:</label>
                     <select th:field="*{bookStatus}" id="cars3">
                         <option value="DOSTEPNA">Dostępna</option>

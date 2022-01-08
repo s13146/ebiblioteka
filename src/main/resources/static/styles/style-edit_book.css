@@ -16,21 +16,24 @@ header {
     width: 50%;
 }
 .content{
-    display: block;
+    display: flex;
     padding: 5%;
     text-align: center;
 }
 .main {
-    padding: 5%;
-    display: flex;
-    justify-content: center;
+    display: block;
     width: 100%;
 }
+
 .edit_option {
-    display: flex;
+    display: block;
+    padding:3%;
 }
 
-
+.edit_part {
+    padding: 2%;
+    text-align: left;
+}
 .border {
     border: #47ad96;
     border-style: double;

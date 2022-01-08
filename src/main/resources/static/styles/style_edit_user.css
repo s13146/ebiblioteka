@@ -29,7 +29,13 @@ h2 {
     font-size: 1.5vw;
     text-align: center;
 }
-
+h3 {
+    font-size: 1vw;
+}
+.edit_part {
+    padding: 2%;
+    text-align: left;
+}
 .border {
     border: #47ad96;
     border-style: double;

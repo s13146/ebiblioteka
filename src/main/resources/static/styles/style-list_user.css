@@ -15,25 +15,26 @@ header {
 .logo {
     width: 50%;
 }
-.content{
-    display: block;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 5%;
+.content {
+    display: flex;
     text-align: center;
 }
+
 .main {
-    display: flex;
-    justify-content: center;
+    padding:0 5% 5% 5%;
+    text-align: center;
+    width: 100%;
 }
 .edit_option {
     display: flex;
 }
 h2 {
-    font-size: 1vw;
+    font-size: 1.5vw;
     text-align: center;
 }
-
+h3 {
+    font-size: 1vw;
+}
 
 table {
     border-collapse: collapse;
@@ -41,7 +42,6 @@ table {
 }
 .headline {
     background-color: #9edbc8 ;
-    font-family: 'Roboto';
     font-size: medium;
 }
 
@@ -55,8 +55,6 @@ tr {
     width: 100%;
 }
 p {
-    font-family: 'Roboto';
-    font-size: medium;
     font-size: 0.8vw;
 }
 .border {
@@ -65,8 +63,7 @@ p {
     border-radius: 3px;
     width: 15%;
     height: 15%;
-    margin-left: -5%;
-    margin-right: 5%;
+    margin: 10px;
 }
 .option {
     width: 80%;
