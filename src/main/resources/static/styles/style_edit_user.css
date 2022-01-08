@@ -1,4 +1,4 @@
-body{
+body {
     width: 80%;
     background-color:white;
     margin:0 auto;
@@ -16,20 +16,19 @@ header {
     width: 50%;
 }
 .content{
-    display: block;
-    padding: 5%;
+    display: flex;
     text-align: center;
 }
 .main {
-    padding: 5%;
-    display: flex;
+    padding: 0 5% 5% 5%;
+    display: block;
     justify-content: center;
     width: 100%;
 }
-.edit_option {
-    display: flex;
+h2 {
+    font-size: 1.5vw;
+    text-align: center;
 }
-
 
 .border {
     border: #47ad96;
@@ -37,21 +36,15 @@ header {
     border-radius: 3px;
     width: 15%;
     height: 15%;
-    margin-left: -5%;
-    margin-right: 5%;
+    margin: 10px;
+
 }
 .option {
     width: 80%;
     margin: 0 auto;
 }
-h2 {
-    font-size: 1.5vw;
-}
-h3{
-    font-size:1vw;
-}
-p {
 
+p {
     font-size: 0.8vw;
 }
 footer {

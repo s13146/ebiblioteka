@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <meta charset="UTF-8">
-    <title>Edycja użytkownika</title>
-
+    <link rel="stylesheet" th:href="@{/styles/style_edit_user.css}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <title>Edit user</title>
 </head>
-
 <body>
-
-<div class="container text-center">
-    <h1>Edycja użytkownika</h1>
-    <form
-            th:action="@{/console/process_edit}" method="post"
-          style="max-width: 600px; margin: 0 auto;"
-          th:object="${userEntity}"
-
-    >
-        <div class="m-3">
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
+<div class="content">
+    <div class="border">
+        <a th:href="@{/console}"><img class="option" th:src="@{/images/admin_icon/console_icon.png }" alt="Consola"/></a>
+        <h3>Menu</h3>
+    </div>
+    <div class="main">
+        <h2>Edycja danych użytkownika</h2>
+    <form th:action="@{/console/process_edit}" method="post" th:object="${userEntity}">
             <div class="form-group row">
                 <label class="col-form-label col-4">ID użytkownika</label>
                 <div class="col-8">
@@ -47,10 +49,13 @@
             <div>
                 <button type="submit" class="btn btn-primary">Zapisz</button>
             </div>
-        </div>
-
     </form>
-
+    </div>
 </div>
+<footer>
+    <p>Biblioteka PJATK GDAŃSK</p>
+    <p>93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
 </body>
 </html>

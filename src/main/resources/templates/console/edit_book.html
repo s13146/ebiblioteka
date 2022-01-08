@@ -13,10 +13,13 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <h1>Edycja książki</h1>
+    <div class="border">
+        <a th:href="@{/console}"><img class="option" th:src="@{/images/admin_icon/console_icon.png }" alt="Consola"/></a>
+        <h3>Menu</h3>
+    </div>
     <div class="main">
-        <form class="edit_option"  th:action="@{/console/process_edit_book}" method="post"  th:object="${book}">
-
+    <h2>Edycja książki</h2>
+    <form class="edit_option"  th:action="@{/console/process_edit_book}" method="post"  th:object="${book}">
             <div class="option">
                 <label >ID książki</label>
                 <input type="text" class="form-control" th:field="*{id}" readonly = "readonly"/>
