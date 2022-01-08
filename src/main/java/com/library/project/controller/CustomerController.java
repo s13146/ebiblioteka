@@ -7,7 +7,6 @@ import com.library.project.model.UserEntity;
 import com.library.project.model.enums.BookStatus;
 import com.library.project.repository.BookRepository;
 import com.library.project.repository.ReservationRepository;
-import com.library.project.repository.UserRepository;
 import com.library.project.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,13 +24,11 @@ public class CustomerController {
     private UserService userService;
     private BookRepository bookRepository;
     private ReservationRepository reservationRepository;
-    private UserRepository userRepository;
 
-    public CustomerController(UserService userService, BookRepository bookRepository, ReservationRepository reservationRepository, UserRepository userRepository) {
+    public CustomerController(UserService userService, BookRepository bookRepository, ReservationRepository reservationRepository) {
         this.userService = userService;
         this.bookRepository = bookRepository;
         this.reservationRepository = reservationRepository;
-        this.userRepository = userRepository;
     }
 
     @GetMapping("/list_user_books")
@@ -46,9 +43,13 @@ public class CustomerController {
     public String bookReservation(@PathVariable(name = "id") long id) {
         UserEntity userEntity = userService.getCurrentUser();
         Book book = bookRepository.getById(id);
+        if (book == null)
+            return "error";
+        if (userEntity.getIsEnabled()==1)
+            throw new ApiRequestException("Twoje konto zostało zablokowane");
         if (userEntity.getReservationsCount() > 2)
             throw new ApiRequestException("Użytkownik ma za dużo wypożyczonych książek");
-        else if (book.getBookStatus() == BookStatus.NIEDOSTEPNA)
+        else if (book.getBookStatus() == BookStatus.NIEDOSTEPNA || book.getBookStatus() == BookStatus.ZAGUBIONA)
             throw new ApiRequestException("Książka jest niedostępna");
         else {
             userService.addReservation(userEntity, book);
@@ -59,7 +60,6 @@ public class CustomerController {
 
     @GetMapping("/customer_details")
     public String viewCustomerDetails(Model model) {
-
         model.addAttribute("user", userService.getCurrentUser());
         return "customer/customer_details";
     }

@@ -14,4 +14,5 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Query("SELECT b FROM Book b WHERE CONCAT(b.title, ' ', b.author, ' ', b.category) LIKE %?1%")
     List<Book> getBookByTitleAuthorCategory(String keyword);
 
+    Book getBookById(long id);
 }

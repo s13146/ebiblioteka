@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 public class AppController {
@@ -92,6 +94,7 @@ public class AppController {
 
     @PostMapping("/forgot_password")
     public String processForgotPassword(@RequestParam String email, Model model) {
+        ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         String token = RandomString.make(30);
         userService.updateResetPasswordToken(token, email);
         String resetPasswordLink = "http://localhost:8080/reset_password?token=" + token;
@@ -103,10 +106,10 @@ public class AppController {
         String body = templateEngine.process("email/forgot_password_template", context);
 
         mailService.sendEmail(email, "eBiblioteka - przypomnienie hasła", body);
-
+        Runnable task = () -> userService.deleteToken(token);
+        ses.schedule(task, 2, TimeUnit.MINUTES);
+        ses.shutdown();
         model.addAttribute("message", "We have sent a reset password link to your email. Please check.");
-
-
         return "forgot_password_form";
     }
 
