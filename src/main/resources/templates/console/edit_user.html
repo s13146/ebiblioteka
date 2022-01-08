@@ -14,34 +14,40 @@
 </header>
 <div class="content">
     <div class="border">
-        <a th:href="@{/console}"><img class="option" th:src="@{/images/admin_icon/console_icon.png }" alt="Consola"/></a>
+        <a th:href="@{/console}"><img class="option" th:src="@{/images/admin_icon/console_icon.png }"
+                                      alt="Consola"/></a>
         <h3>Menu</h3>
     </div>
     <div class="main">
         <h2>Edycja danych użytkownika</h2>
-    <form th:action="@{/console/process_edit}" method="post" th:object="${userEntity}">
+        <form th:action="@{/console/process_edit}" method="post" th:object="${userEntity}">
             <div class="edit_part">
                 <label class="col-form-label col-4">ID użytkownika</label>
-                    <input type="text" class="form-control" th:field="*{id}" readonly = "readonly"/>
+                <input type="text" class="form-control" th:field="*{id}" readonly="readonly"/>
             </div>
             <div class="edit_part">
                 <label class="col-form-label col-4">E-mail</label>
-                    <input type="email" class="form-control" th:field="*{email}" required="required"/>
+                <input type="email" class="form-control" th:field="*{email}" required="required"/>
             </div>
             <div class="edit_part">
                 <label class="col-form-label col-4">Imie</label>
-                    <input type="text" class="form-control" th:field="*{firstName}" required="required" minlength="2"
-                           maxlength="35"/>
+                <input type="text" class="form-control" th:field="*{firstName}" required="required" minlength="2"
+                       maxlength="35"/>
             </div>
             <div class="edit_part">
                 <label class="col-form-label col-4">Nazwisko</label>
-                    <input type="text" class="form-control" th:field="*{lastName}" required="required" minlength="2"
-                           maxlength="45"/>
+                <input type="text" class="form-control" th:field="*{lastName}" required="required" minlength="2"
+                       maxlength="45"/>
+            </div>
+            <div class="edit_part">
+                <label class="col-form-label col-4">Blokada - jeśli chcesz zablkować użytkownika wpisz 1</label>
+                <input type="text" class="form-control" th:field="*{isEnabled}" value="0" required="required" minlength="1"
+                       maxlength="1"/>
             </div>
             <div>
                 <button type="submit" class="btn btn-primary">Zapisz</button>
             </div>
-    </form>
+        </form>
     </div>
 </div>
 <footer>

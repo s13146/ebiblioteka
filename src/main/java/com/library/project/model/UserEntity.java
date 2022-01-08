@@ -25,7 +25,7 @@ public class UserEntity {
     @Column(nullable = false, length = 45)
     private String lastName;
     @Column(nullable = false)
-    private boolean isEnabled;
+    private int isEnabled;
     @Column(nullable = true, length = 30)
     private String resetPasswordToken;
     @Column(columnDefinition = "integer default 0")
@@ -115,12 +115,12 @@ public class UserEntity {
         this.lastName = lastName;
     }
 
-    public boolean isEnabled() {
+    public int getIsEnabled() {
         return isEnabled;
     }
 
-    public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
+    public void setIsEnabled(int isEnabled) {
+        this.isEnabled = isEnabled;
     }
 
     public int getReservationsCount() {
@@ -166,4 +166,6 @@ public class UserEntity {
     public void setResetPasswordToken(String resetPasswordToken) {
         this.resetPasswordToken = resetPasswordToken;
     }
+
+
 }

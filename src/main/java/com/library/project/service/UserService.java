@@ -94,4 +94,11 @@ public class UserService {
         userEntity.setResetPasswordToken(null);
         userRepository.save(userEntity);
     }
+
+    public void deleteToken(String token){
+        UserEntity userEntity = userRepository.findByResetPasswordToken(token);
+        userEntity.setResetPasswordToken(null);
+        userRepository.save(userEntity);
+
+    }
 }

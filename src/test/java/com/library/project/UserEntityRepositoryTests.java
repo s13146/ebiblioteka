@@ -29,7 +29,7 @@ public class UserEntityRepositoryTests {
         userEntity.setPassword("12345");
         userEntity.setFirstName("Janusz");
         userEntity.setLastName("Kowalski");
-        userEntity.setEnabled(true);
+        userEntity.setIsEnabled(0);
         userEntity.setReservationsCount(0);
 
 
@@ -47,7 +47,7 @@ public class UserEntityRepositoryTests {
         userEntity.setPassword("12345");
         userEntity.setFirstName("Janusz");
         userEntity.setLastName("Kowalski");
-        userEntity.setEnabled(true);
+        userEntity.setIsEnabled(0);
         userRepository.save(userEntity);
         String email = "januszpol@wp.pl";
         UserEntity findUserEntity = userRepository.getUserByEmail(email);
