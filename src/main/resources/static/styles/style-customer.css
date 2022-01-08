@@ -34,10 +34,14 @@ h3 {
     border-style: double;
     border-radius: 3px;
     margin: 3%;
+    height: 20vh;
 }
+
 .option {
     width: 90%;
-
+}
+.option:hover {
+    width: 92%;
 }
 p {
 

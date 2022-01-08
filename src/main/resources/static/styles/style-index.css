@@ -36,7 +36,7 @@ a {
     margin-left: 40%;
 }
 .login_photo:hover {
-    width:36%;
+   //* width:36%; *//
 }
 .login_format {
     height: 10%;

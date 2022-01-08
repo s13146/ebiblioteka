@@ -34,6 +34,7 @@ h2 {
     border-style: solid;
     border-radius: 10px;
     width: 15%;
+    height: 24vh;
     margin: 15px;
     padding: 2%;
 }
@@ -41,10 +42,10 @@ h2 {
     width: 100%;
     margin: 0 auto;
 }
-
+.option:hover {
+    width: 102%;
+}
 p {
-    font-family: 'Roboto';
-    font-size: medium;
     font-size: 0.8vw;
 }
 footer {

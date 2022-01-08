@@ -17,7 +17,7 @@ header {
 }
 .content{
     display: flex;
-    text-align: center;
+    text-align: left;
 
 }
 .main {
@@ -30,6 +30,7 @@ h2 {
 }
 h3 {
     font-size: 1vw;
+    text-align: center;
 }
 .border {
     border: #47ad96;
@@ -38,6 +39,7 @@ h3 {
     width: 15%;
     height: 15%;
     margin: 10px;
+    text-align: center;
 
 }
 .option {
