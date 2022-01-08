@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <meta charset="UTF-8">
-    <title>eLibrary homepage</title>
+    <title>Consola</title>
+    <link rel="stylesheet" th:href="@{/styles/style-process_book.css}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-<div class="container text-center">
-    <h1>Sukces. Klient oddał książkę i jest ona z powrotem na stanie biblioteki</h1>
-    <h3><a th:href="@{/console/list_book_taken}">back</a></h3>
-    <h3><a th:href="@{/console}" sec:authorize="hasAnyAuthority('ADMIN')">console</a></h3>
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
+<div class="content">
+    <h2>Sukces. Klient oddał książkę i jest ona z powrotem na stanie biblioteki</h2>
+    <div class="main">
+        <div class="border">
+            <a th:href="@{/console}" sec:authorize="hasAnyAuthority('ADMIN')"><img class="option" th:src="@{/images/admin_icon/console_icon.png }" alt="Consola"/></a>
+            <h3>Menu</h3>
+        </div>
+        <div class="border">
+            <a th:href="@{/console/list_book_taken}"><img class="option" th:src="@{/images/customer_icon/back_icon.png }" alt="Consola"/></a>
+            <h3>Powrót</h3>
+        </div>
 </div>
+</div>
+    <footer>
+        <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
+        <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+    </footer>
 </body>
 </html>

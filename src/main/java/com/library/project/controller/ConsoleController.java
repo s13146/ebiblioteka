@@ -115,7 +115,7 @@ public class ConsoleController {
         try {
             userRepository.delete(userEntity);
         } catch (Exception e) {
-            throw new ApiRequestException("Wystąpił błąd podczas usuwania użytkownika\nPrawdopodobnie użytkownik ma wypożyczone jakieś książki");
+            throw new ApiRequestException("Wystąpił błąd podczas usuwania użytkownika. \nPrawdopodobnie użytkownik ma wypożyczone jakieś książki");
         }
         List<UserEntity> listUsers = userRepository.findAll();
         model.addAttribute("listUsers", listUsers);
