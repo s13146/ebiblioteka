@@ -1,5 +1,7 @@
 package com.library.project.email;
 
+import com.library.project.exception.ApiRequestException;
+import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -28,7 +30,11 @@ public class MailService {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-        javaMailSender.send(mail);
-
+        try {
+            javaMailSender.send(mail);
+        }
+        catch (MailSendException e){
+            throw new ApiRequestException("Bląd przy wysyłaniu maila");
+        }
     }
 }
