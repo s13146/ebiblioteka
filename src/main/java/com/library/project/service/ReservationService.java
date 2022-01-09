@@ -25,6 +25,12 @@ public class ReservationService {
         return new Reservation(userEntity, book, ReservationStatus.ZAREZERWOWANA);
     }
 
+    public void setLendingTime(Reservation reservation){
+        reservation.setBorrowDate(java.time.LocalDate.now().toString());
+        reservation.setReturnDate(java.time.LocalDate.now().plusMonths(1).toString());
+        reservationRepository.save(reservation);
+    }
+
     public void save(Reservation reservation) {
         reservationRepository.save(reservation);
     }

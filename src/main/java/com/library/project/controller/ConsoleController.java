@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
@@ -186,13 +185,19 @@ public class ConsoleController {
         if (userEntity == null) {
             return "error";
         }
+        if (reservationRepository.getById(id) == null) {
+            return "error";
+        }
         reservationService.updateStatus(id, ReservationStatus.GOTOWA_DO_ODBIORU);
+        reservationService.setLendingTime(reservationRepository.getById(id));
+
         Context context = new Context();
         context.setVariable("header", "header");
         context.setVariable("title", "Książka gotowa do odbioru");
         context.setVariable("userName", userEntity.getFirstName() + " " + userEntity.getLastName());
         context.setVariable("book", bookRepository.getBookById(id).getTitle());
         String body = templateEngine.process("email/book_ready_template", context);
+
         mailService.sendEmail(userEntity.getEmail(), "eBiblioteka", body);
 
         return "console/process_book_ready";

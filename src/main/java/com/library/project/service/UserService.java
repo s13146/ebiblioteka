@@ -19,31 +19,27 @@ public class UserService {
     private UserRepository userRepository;
     private UserGroupRepository groupRepository;
     private ReservationService reservationService;
+    private BCryptPasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, UserGroupRepository groupRepository, ReservationService reservationService) {
+    public UserService(UserRepository userRepository, UserGroupRepository groupRepository, ReservationService reservationService,BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.groupRepository = groupRepository;
         this.reservationService = reservationService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public void setPassword(UserEntity userEntity, String password) {
-        userEntity.setPassword(passwordEncoder(password));
+        userEntity.setPassword(passwordEncoder.encode(password));
     }
     public boolean comparePassword(UserEntity userEntity){
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         UserEntity currentUser = getCurrentUser();
-        if (encoder.matches(userEntity.getPassword(),currentUser.getPassword())) {
-            currentUser.setPassword(passwordEncoder(userEntity.getNewPassword()));
+        if (passwordEncoder.matches(userEntity.getPassword(),currentUser.getPassword())) {
+            currentUser.setPassword(passwordEncoder.encode(userEntity.getNewPassword()));
             userRepository.save(currentUser);
             return true;
         } else {
             return false;
         }
-    }
-
-    private String passwordEncoder(String rawPassword) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        return encoder.encode(rawPassword);
     }
 
 
@@ -87,7 +83,6 @@ public class UserService {
     }
 
     public void updatePassword(UserEntity userEntity, String newPassword) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(newPassword);
         userEntity.setPassword(encodedPassword);
 

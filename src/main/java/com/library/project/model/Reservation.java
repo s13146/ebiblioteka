@@ -32,8 +32,6 @@ public class Reservation {
         this.userEntity = userEntity;
         this.book = book;
         this.reservationStatus = reservationStatus;
-        this.borrowDate = java.time.LocalDate.now().toString();
-        this.returnDate = java.time.LocalDate.now().plusMonths(1).toString();
     }
 
     public long getId() {
