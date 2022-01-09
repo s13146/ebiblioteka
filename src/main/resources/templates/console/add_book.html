@@ -23,16 +23,15 @@
           style="max-width: 600px; margin: 0 auto;"
           th:object="${book}">
             <div class="edit_part">
-                <label >Tytuł</label>
+                <label >Tytuł: </label>
                     <input type="text" class="form-control" th:field="*{title}"  required minlength="2"/>
             </div>
             <div class="edit_part">
-                <label >Autor</label>
+                <label >Autor:</label>
                 <input type="text" class="form-control" th:field="*{author}" required minlength="2"
                            maxlength="64"/>
             </div>
             <div class="edit_part">
-                <label>Kategoria</label>
                     <label for="cars">Kategoria:</label>
 
                     <select th:field="*{category}" id="cars">

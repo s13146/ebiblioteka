@@ -16,26 +16,25 @@
     <img class="logo" th:src="@{/images/logo.png}" alt="logo"/>
     <div class="main">
         <form name="log" th:action="@{/login}" method="post">
+
+                <div class="input-container">
+                    <input type="email" class="form-control" id="email" name="username" placeholder="email">
+                    <label>E-mail</label>
+                </div>
+            <div class="input-container">
+                <input type="password" class="form-control" id="password" name="password" minlength="6" maxlength="10"
+                           placeholder="hasło"/>
+                <label>Hasło</label>
+            </div>
+                <div class="reset_format">
+                <a th:href="@{/forgot_password}">Resetowanie hasła</a>
+                </div>
             <div th:if="${param.error}">
                 <div class="alert">
                     Invalid username or password.
                 </div>
             </div>
-            <div class="login">
-                <div class="login_format">
-                    <h2>E-mail: </h2>
-                    <input type="email" class="form-control" id="email" name="username" placeholder="email">
-                </div>
-                <div class="login_format">
-                    <h2>Hasło: </h2>
-                    <input type="password" class="form-control" id="password" name="password" minlength="6" maxlength="10"
-                           placeholder="password"/>
-                </div>
-                <div class="reset_format">
-                <a th:href="@{/forgot_password}">Resetowanie hasła</a>
-                </div>
-                <button type="submit" class="button"> Zaloguj się</button>
-            </div>
+                <button type="submit" class="btn"> Zaloguj się</button>
         </form>
     </div>
 </div>
