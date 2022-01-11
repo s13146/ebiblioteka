@@ -39,9 +39,9 @@
                 <td th:text="${userEntity.reservationsCount}">Liczba rezerwacji</td>
                 <td>
                     <a th:href="@{'/console/edit/' + ${userEntity.id}}">
-                        <h4>Edycja</h4></a>
+                        <button class="btn">Edycja</button></a>
                     <a th:href="@{'/console/delete/' + ${userEntity.id}}">
-                        <h4>Usuń</h4></a>
+                        <button class="btn">Usuń</button></a>
                 </td>
             </tr>
             </tbody>

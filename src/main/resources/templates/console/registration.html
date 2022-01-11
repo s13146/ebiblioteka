@@ -32,28 +32,28 @@
         <form name="log" th:action="@{/console/process_register}" method="post" th:object="${user}">
             <div class="register">
                 <div class="input-container">
+                    <label>E-mail</label>
                     <input th:field="*{email}" type="email"  name="email" id="email" required=" "minlength="8" maxlength="64"/>
-                    <lable>E-mail</lable>
                 </div>
                 <div class="input-container">
+                    <label>Hasło</label>
                     <input type="password" th:field="*{password}" name="password" minlength="8" maxlength="10" required="" />
-                    <labele>Hasło</labele>
                 </div>
                 <div class="input-container">
+                    <label>Powtórz hasło</label>
                     <input type="password" name="password_confirm" required="" minlength="8" id="password_confirm" oninput="check(this)"
                                maxlength="64"/>
-                    <label>Powtórz hasło</label>
                 </div>
                 <div class="input-container">
+                    <label>Imię</label>
                     <input type="text"  name="name" required="" minlength="2" maxlength="35" th:field="*{firstName}" />
-                    <labele>Imię</labele>
                 </div>
                 <div class="input-container">
+                    <label>Nazwisko</label>
                     <input type="text" th:field="*{lastName}"  name="lastName" required="" minlength="2" maxlength="45" />
-                    <labele>Nazwisko</labele>
                 </div>
-                <button type="submit" class="btn"> Zarejestruj</button>
             </div>
+            <button type="submit" class="btn"> Zarejestruj</button>
         </form>
     </div>
 </div>

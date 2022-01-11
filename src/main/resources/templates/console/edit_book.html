@@ -19,22 +19,21 @@
     </div>
     <div class="main">
     <h2>Edycja książki</h2>
-    <form class="edit_option"  th:action="@{/console/process_edit_book}" method="post"  th:object="${book}">
-            <div class="edit_part">
+    <form th:action="@{/console/process_edit_book}" method="post"  th:object="${book}">
+            <div class="input-container">
                 <label >ID książki</label>
                 <input type="text" class="form-control" th:field="*{id}" readonly = "readonly"/>
             </div>
-            <div class="edit_part">
+            <div class="input-container">
                 <label >Tytuł</label>
                 <input type="text" class="form-control" th:field="*{title}" required/>
             </div>
-            <div class="edit_part">
+            <div class="input-container">
                 <label >Autor</label>
                 <input type="text" class="form-control" th:field="*{author}" required minlength="8" maxlength="64"/>
             </div>
-            <div class="edit_part">
+            <div class="box">
                     <label for="cars2">Kategoria:</label>
-
                     <select th:field="*{category}" id="cars2">
                         <option value="OBYCZAJOWA">obyczajowa</option>
                         <option value="ROMANS">romans</option>
@@ -47,7 +46,7 @@
                     </select>
             </div>
 
-            <div class="edit_part">
+            <div class="box">
                     <label for="cars3">Status książki:</label>
                     <select th:field="*{bookStatus}" id="cars3">
                         <option value="DOSTEPNA">Dostępna</option>
@@ -55,8 +54,8 @@
                         <option value="ZAGUBIONA">Zagubiona</option>
                     </select>
             </div>
-            <button type="submit" class="btn btn-primary">Zapisz</button>
-        </form>
+        <button type="submit" class="btn">Zapisz</button>
+    </form>
     </div>
 </div>
 <footer>

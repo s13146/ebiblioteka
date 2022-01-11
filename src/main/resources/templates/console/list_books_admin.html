@@ -40,8 +40,10 @@
                 <td th:text="${book.bookStatus}">Status</td>
 
                 <td>
-                    <a th:href="@{'/console/editbook/' + ${book.id}}">Edycja</a>
-                    <a th:href="@{'/console/deletebook/' + ${book.id}}">Usuń</a>
+                    <a th:href="@{'/console/editbook/' + ${book.id}}">
+                        <button class="btn">Edycja</button></a>
+                    <a th:href="@{'/console/deletebook/' + ${book.id}}">
+                        <button class="btn">Usuń</button></a>
                 </td>
             </tr>
             </tbody>

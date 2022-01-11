@@ -20,11 +20,10 @@ header {
     display: block;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 5%;
+    padding: 3%;
     text-align: center;
 }
 .main {
-    padding: 5%;
     display: flex;
     justify-content: center;
 }

@@ -42,7 +42,7 @@
                 <td th:text="${reservation.borrowDate}">Data wypożyczenia</td>
                 <td th:text="${reservation.returnDate}">Data zwrotu</td>
                 <td>
-                    <a th:href="@{/console/book_ready/{bookid}/{email} (bookid=${reservation.id}, email=${reservation.userEntity.getEmail()})}">Książka gotowa do odbioru</a>
+                    <a th:href="@{/console/book_ready/{bookid}/{email} (bookid=${reservation.id}, email=${reservation.userEntity.getEmail()})}"><button class="btn">Książka gotowa do odbioru</button></a>
                 </td>
             </tr>
             </tbody>

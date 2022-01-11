@@ -22,18 +22,17 @@
         <form th:action="@{/console/process_add_book}" method="post"
           style="max-width: 600px; margin: 0 auto;"
           th:object="${book}">
-            <div class="edit_part">
+            <div class="input-container">
                 <label >Tytuł: </label>
-                    <input type="text" class="form-control" th:field="*{title}"  required minlength="2"/>
+                <input type="text" class="form-control" th:field="*{title}"  required minlength="2"/>
             </div>
-            <div class="edit_part">
+            <div class="input-container">
                 <label >Autor:</label>
                 <input type="text" class="form-control" th:field="*{author}" required minlength="2"
                            maxlength="64"/>
             </div>
-            <div class="edit_part">
+            <div class="box">
                     <label for="cars">Kategoria:</label>
-
                     <select th:field="*{category}" id="cars">
                         <option value="OBYCZAJOWA">obyczajowa</option>
                         <option value="ROMANS">romans</option>
@@ -45,9 +44,7 @@
                         <option value="SCIFI">sci-fi</option>
                     </select>
             </div>
-            <div>
-                <button type="submit" class="btn btn-primary">Dodaj książkę</button>
-            </div>
+            <button type="submit" class="btn">Dodaj książkę</button>
     </form>
 </div>
 </div>

@@ -73,3 +73,15 @@ footer {
     text-align: center;
     padding: 1%;
 }
+.btn {
+    color: black;
+    background-color: #9edbc8;
+    outline: none;
+    border: 0;
+    padding: 5px 10px;
+    font-size: 0.8vw;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
