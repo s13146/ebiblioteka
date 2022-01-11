@@ -6,7 +6,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 header {
-    background-color:white;
     display: flex;
     justify-content: center;
     background-color: beige;
@@ -53,13 +52,11 @@ lable {
 }
 h1 {
     padding-top: 3%;
-    font-family: 'Roboto';
     font-size: 1em;
     padding-bottom: 5%;
 }
 h2 {
     padding-left: 5%;
-    font-family: 'Roboto';
     font-size: 0.5em;
 }
 p {

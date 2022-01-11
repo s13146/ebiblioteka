@@ -7,6 +7,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <script type='text/javascript'>
+        function check(input) {
+            if (document.getElementById('password_confirm').value !== document.getElementById('password').value) {
+                input.setCustomValidity('Hasła muszą być takie same.');
+            } else {
+                // input is valid -- reset the error message
+                input.setCustomValidity('');
+            }
+        }
+    </script>
 </head>
 <body>
 <header>
@@ -21,38 +31,28 @@
         <h2>Rejestracja użytkownika</h2>
         <form name="log" th:action="@{/console/process_register}" method="post" th:object="${user}">
             <div class="register">
-                <div class="register_format">
+                <div class="input-container">
+                    <input th:field="*{email}" type="email"  name="email" id="email" required=" "minlength="8" maxlength="64"/>
                     <lable>E-mail</lable>
-                    <input type="email" th:field="*{email}" required />
                 </div>
-                <div class="register_format">
+                <div class="input-container">
+                    <input type="password" th:field="*{password}" name="password" minlength="8" maxlength="10" required="" />
                     <labele>Hasło</labele>
-                    <input type="password" th:field="*{password}" required minlength="8" maxlength="10" />
                 </div>
-                <div class="register_format">
-                    <label>Powtórz hasło</label>
-                    <input type="password" name="password_confirm" class="form-control" required="required" minlength="8" id="password_confirm" oninput="check(this)"
+                <div class="input-container">
+                    <input type="password" name="password_confirm" required="" minlength="8" id="password_confirm" oninput="check(this)"
                                maxlength="64"/>
+                    <label>Powtórz hasło</label>
                 </div>
-                <script type='text/javascript'>
-                    function check(input) {
-                        if (document.getElementById('password_confirm').value !== document.getElementById('password').value) {
-                            input.setCustomValidity('Hasła muszą być takie same.');
-                        } else {
-                            // input is valid -- reset the error message
-                            input.setCustomValidity('');
-                        }
-                    }
-                </script>
-                <div class=" register_format">
+                <div class="input-container">
+                    <input type="text"  name="name" required="" minlength="2" maxlength="35" th:field="*{firstName}" />
                     <labele>Imię</labele>
-                    <input type="text" th:field="*{firstName}" required minlength="2" maxlength="35" />
                 </div>
-                <div class=" register_format">
+                <div class="input-container">
+                    <input type="text" th:field="*{lastName}"  name="lastName" required="" minlength="2" maxlength="45" />
                     <labele>Nazwisko</labele>
-                    <input type="text" th:field="*{lastName}" required minlength="2" maxlength="45" />
                 </div>
-                <button type="submit" class=""> Zarejestruj</button>
+                <button type="submit" class="btn"> Zarejestruj</button>
             </div>
         </form>
     </div>

@@ -38,8 +38,10 @@
                 <td th:text="${userEntity.email}">E-mail</td>
                 <td th:text="${userEntity.reservationsCount}">Liczba rezerwacji</td>
                 <td>
-                    <a th:href="@{'/console/edit/' + ${userEntity.id}}">Edycja</a>
-                    <a th:href="@{'/console/delete/' + ${userEntity.id}}">Usuń</a>
+                    <a th:href="@{'/console/edit/' + ${userEntity.id}}">
+                        <h4>Edycja</h4></a>
+                    <a th:href="@{'/console/delete/' + ${userEntity.id}}">
+                        <h4>Usuń</h4></a>
                 </td>
             </tr>
             </tbody>
