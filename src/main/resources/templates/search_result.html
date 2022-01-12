@@ -13,9 +13,24 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <div class="border">
-        <a th:href="@{/customer}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/></a>
-        <h3>Strona główna</h3>
+        <div th:if="${#authorization.expression('hasAuthority(''ROLE_ADMIN'')')}">
+            <div class="border">
+                <a th:href="@{/console}"><img class="option" th:src="@{../images/admin_icon/console_icon.png }" alt="Consola"/><h2>Consola</h2>
+                </a>
+            </div>
+        </div>
+        <div th:if="${#authorization.expression('hasAuthority(''CUSTOMER'')')}">
+            <div class="border">
+            <a th:href="@{/customer}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/><h2>Home</h2>
+            </a>
+        </div>
+        </div>
+
+    <div th:if="${#authorization.expression('isAnonymous()')}">
+        <div class="border">
+            <a th:href="@{/}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/><h2>Główna</h2>
+            </a>
+        </div>
     </div>
 <div class="main">
     <h2>Wyniki wyszukiwania</h2>
@@ -38,7 +53,7 @@
                 <td th:text="${book.category}">Kategoria</td>
                 <td th:text="${book.bookStatus}">Czy jest dostępna</td>
                 <td>
-                    <a th:href="@{'/customer/book_reservation/' + ${book.id}}" sec:authorize="hasAnyAuthority('CUSTOMER')">Zarezerwuj</a>
+                    <a th:href="@{'/customer/book_reservation/' + ${book.id}}" sec:authorize="hasAnyAuthority('CUSTOMER')"><button class="btn">Zarezerwuj</button></a>
                 </td>
             </tr>
             </tbody>

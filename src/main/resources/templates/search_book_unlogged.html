@@ -22,8 +22,10 @@
             <h3>Wyszukiwarka książek</h3>
             <form th:action="@{/search_result}" method="post">
                 <h2>Wpisz nazwę książki, autora lub kategorię której szukasz:</h2>
-                    <input type="text" class="form-control" th:value="${name}" name="name" required/>
-                    <button type="submit" class="btn btn-primary">Szukaj</button>
+                <div class="input-container">
+                    <input type="text"  th:value="${name}" name="name" required/>
+                    <button type="submit" class="btn">Szukaj</button>
+                </div>
         </div>
     </form>
     </div>
