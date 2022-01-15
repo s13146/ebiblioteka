@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Moje książki</title>
+    <link rel="stylesheet" th:href="@{/styles/style-list_user_books.css}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
+<div class="content">
+    <div class="border">
+        <a th:href="@{/customer}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/></a>
+        <h3>Strona główna</h3>
+    </div>
+    <div class="main">
+        <h2 th:text="${email}" >Książki użytkownika </h2>
+            <table>
+                <thead class="headline">
+                <tr>
+                    <th>Tytuł książki</th>
+                    <th>Status wypożyczenia</th>
+                    <th>Data wypożyczenia</th>
+                    <th>Data zwrotu</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="mybooks: ${mybooks}">
+                    <td th:text="${mybooks.book.getTitle()}">Tytuł książki</td>
+                    <td th:text="${mybooks.reservationStatus}">Status rezerwacji</td>
+                    <td th:text="${mybooks.borrowDate}">Data wypożyczenia</td>
+                    <td th:text="${mybooks.returnDate}">Data zwrotu</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+<footer>
+    <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
+</body>
+</html>

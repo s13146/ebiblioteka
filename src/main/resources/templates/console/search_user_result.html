@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <link th:href="@{/styles/style-search_result.css}" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <title>Wyszukiwarka</title>
+</head>
+<body>
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
+<div class="content">
+    <div th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
+        <div class="border">
+            <a th:href="@{/console}"><img class="option" th:src="@{../images/admin_icon/console_icon.png }"
+                                          alt="Consola"/>
+                <h2>Consola</h2>
+            </a>
+        </div>
+    </div>
+    <div th:if="${#authorization.expression('hasAuthority(''CUSTOMER'')')}">
+        <div class="border">
+            <a th:href="@{/customer}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }"
+                                           alt="Consola"/>
+                <h2>Home</h2>
+            </a>
+        </div>
+    </div>
+
+    <div th:if="${#authorization.expression('isAnonymous()')}">
+        <div class="border">
+            <a th:href="@{/}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/>
+                <h2>Główna</h2>
+            </a>
+        </div>
+    </div>
+    <div class="main">
+        <h2>Wyniki wyszukiwania</h2>
+        <table>
+            <thead class="headline">
+            <tr>
+                <th> ID czytelnika</th>
+                <th> Imię</th>
+                <th> Nazwisko</th>
+                <th> E-mail</th>
+                <th> Liczba rezerwacji</th>
+                <th> Akcja</th>
+                <th> Lista książek użytkownika</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="userEntity: ${listUsers}">
+                <td th:text="${userEntity.id}">ID czytelnika</td>
+                <td th:text="${userEntity.firstName}">Imię</td>
+                <td th:text="${userEntity.lastName}">Nazwisko</td>
+                <td th:text="${userEntity.email}">E-mail</td>
+                <td th:text="${userEntity.reservationsCount}">Liczba rezerwacji</td>
+                <td>
+                    <a th:href="@{'/console/edit/' + ${userEntity.id}}">
+                        <button class="btn">Edycja</button>
+                    </a>
+                    <a th:href="@{'/console/delete/' + ${userEntity.id}}">
+                        <button class="btn">Usuń</button>
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/console/list_user_books/' + ${userEntity.email}}">
+                        <button class="btn">Lista książek użytkwonika</button>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<footer>
+    <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
+</body>
+</html>

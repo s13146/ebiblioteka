@@ -15,10 +15,7 @@ import com.library.project.service.ReservationService;
 import com.library.project.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
@@ -233,5 +230,40 @@ public class ConsoleController {
         userEntity.setReservationsCount(userEntity.getReservationsCount() - 1);
         userRepository.save(userEntity);
         return "console/process_book_return";
+    }
+
+
+    @GetMapping("/search_user")
+    public String viewSearchUser() {
+        return "console/search_user";
+    }
+
+
+    @PostMapping("/search_user_result")
+    public String viewUserSearchResult(Model model, @RequestParam String name) {
+        List<UserEntity> listUsers = userRepository.getUsersByEmail(name);
+        model.addAttribute("listUsers", listUsers);
+        return "console/search_user_result";
+    }
+
+    @GetMapping("/search_book_console")
+    public String viewSearchBook() {
+        return "console/search_book_console";
+    }
+
+    @PostMapping("/search_book_result")
+    public String viewSearchResult(Model model, @RequestParam String name) {
+        List<Book> bookList = bookRepository.getBookByTitleAuthorCategory(name);
+        model.addAttribute("bookList", bookList);
+        return "console/search_book_result";
+    }
+
+    @RequestMapping("/list_user_books/{email}")
+    public String viewMyBooksList(Model model, @PathVariable String email) {
+        List<Reservation> mybooks = reservationRepository.getMyReservation(email);
+        model.addAttribute("mybooks", mybooks);
+        model.addAttribute("email", email);
+
+        return "console/list_user_books";
     }
 }
