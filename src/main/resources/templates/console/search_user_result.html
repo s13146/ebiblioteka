@@ -13,30 +13,12 @@
     <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
 </header>
 <div class="content">
-    <div th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
-        <div class="border">
+        <div th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" class="border">
             <a th:href="@{/console}"><img class="option" th:src="@{../images/admin_icon/console_icon.png }"
                                           alt="Consola"/>
-                <h2>Consola</h2>
+                <h3>Menu</h3>
             </a>
         </div>
-    </div>
-    <div th:if="${#authorization.expression('hasAuthority(''CUSTOMER'')')}">
-        <div class="border">
-            <a th:href="@{/customer}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }"
-                                           alt="Consola"/>
-                <h2>Home</h2>
-            </a>
-        </div>
-    </div>
-
-    <div th:if="${#authorization.expression('isAnonymous()')}">
-        <div class="border">
-            <a th:href="@{/}"><img class="option" th:src="@{../images/admin_icon/icon_home.png }" alt="Consola"/>
-                <h2>Główna</h2>
-            </a>
-        </div>
-    </div>
     <div class="main">
         <h2>Wyniki wyszukiwania</h2>
         <table>

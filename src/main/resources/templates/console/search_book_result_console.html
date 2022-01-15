@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link th:href="@{/styles/style-search_result.css}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <title>Wyszukiwarka</title>
+</head>
+<body>
+<header>
+    <img class="logo" th:src="@{/images/logo_tlo.png}" alt="logo"/>
+</header>
+<div class="content">
+            <div th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" class="border">
+                <a th:href="@{/console}"><img class="option" th:src="@{../images/admin_icon/console_icon.png }" alt="Consola"/><h3>Menu</h3>
+                </a>
+            </div>
+<div class="main">
+    <h2>Wyniki wyszukiwania</h2>
+    <table>
+        <thead class="headline">
+        <tr>
+            <th>ID książki</th>
+            <th>Tytuł</th>
+            <th>Autor</th>
+            <th>Kategoria</th>
+            <th>Status</th>
+            <th>Akcja</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book: ${bookList}">
+            <td th:text="${book.id}">ID książki</td>
+            <td th:text="${book.title}">Tytuł</td>
+            <td th:text="${book.author}">Autor</td>
+            <td th:text="${book.category}">Kategoria</td>
+            <td th:text="${book.bookStatus}">Status</td>
+
+            <td>
+                <a th:href="@{'/console/editbook/' + ${book.id}}">
+                    <button class="btn">Edycja</button></a>
+                <a th:href="@{'/console/deletebook/' + ${book.id}}">
+                    <button class="btn">Usuń</button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+<footer>
+    <p>Biblioteka PJATK GDAŃSK 93-540 GDAŃSK ul. Brzegi 55 </p>
+    <p>Michał Czerwiak, Bartosz Kamiński, Katarzyna Węsierska</p>
+</footer>
+</body>
+</html>

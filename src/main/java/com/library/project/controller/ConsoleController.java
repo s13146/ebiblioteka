@@ -257,7 +257,12 @@ public class ConsoleController {
         model.addAttribute("bookList", bookList);
         return "console/search_book_result";
     }
-
+    @PostMapping("/search_book_result_console")
+    public String viewSearchResultConsole(Model model, @RequestParam String name) {
+        List<Book> bookList = bookRepository.getBookByTitleAuthorCategory(name);
+        model.addAttribute("bookList", bookList);
+        return "console/search_book_result_console";
+    }
     @RequestMapping("/list_user_books/{email}")
     public String viewMyBooksList(Model model, @PathVariable String email) {
         List<Reservation> mybooks = reservationRepository.getMyReservation(email);
