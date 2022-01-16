@@ -109,7 +109,7 @@ public class AppController {
         Runnable task = () -> userService.deleteToken(token);
         ses.schedule(task, 2, TimeUnit.MINUTES);
         ses.shutdown();
-        model.addAttribute("message", "We have sent a reset password link to your email. Please check.");
+        model.addAttribute("message", "Wysłaliśmy link do resetwania maila. Sprawdź pocztę.");
         return "forgot_password_form";
     }
 

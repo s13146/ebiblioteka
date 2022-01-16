@@ -13,7 +13,7 @@
     <h1>Witaj w eBibliotece</h1>
 </header>
 <div class="content">
-    <img class="logo" th:src="@{/images/logo.png}" alt="logo"/>
+    <a th:href="@{/}"><img class="logo" th:src="@{/images/logo.png}" alt="logo"/></a>
     <div class="main">
         <form name="log" th:action="@{/login}" method="post">
             <div class="input-container">

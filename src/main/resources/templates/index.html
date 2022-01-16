@@ -7,15 +7,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
     <title>eBiblioteka</title>
+
 </head>
 <body>
 <header>
+    <div class="hero">
     <img class="logo" th:src="@{images/logo_tlo.png}" alt="logo"/>
+    </div>
     <div class="login">
         <a th:href="@{login}">
             <img class="login_photo" th:src="@{../images/login.png}" alt="Zaloguj się"/>
             <div class="text_describe">
-                <h2>Zaloguj się</h2>
+            <button class="btn">Zaloguj się</button>
             </div>
         </a>
     </div>
@@ -27,7 +30,7 @@
             <a th:href="@{/search_book_unlogged}">
                 <img class="search_photo" th:src="@{../images/search.png}" alt="Wyszukiwarka książek"/>
                 <div class="text_describe">
-                    <h2>Wyszukiwarka</h2>
+                    <button class="btn">Wyszukiwarka</button>
                 </div>
             </a>
         </div>

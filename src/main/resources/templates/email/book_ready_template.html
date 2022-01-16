@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <title th:remove="all">CodeCouple Newsletter</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title th:remove="all">CodeCouple Newsletter</title>
+    <link rel="stylesheet" th:href="@{styles/style-email.css}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 </head>
 <body>
+<header>
+    <h1>eBibioteka</h1>
+</header>
+<h2 th:text="${title}">title</h2></td>
+<h3>Witaj</h3><h3 th:text="${userName}">userName</h3></td>
+<h3>Twoja książka o tytule: </h3><p th:text="${book}">book</p></td>
+<h2>Jest gotowa do odbioru. Zapraszamy </h2>
 
-<p>Książka jest gotowa do odbioru</p>
-
-<h1 th:text="${title}">title</h1></td>
-
-<h3 th:text="${userName}">userName</h3></td>
-
-<p th:text="${header}">header</p></td>
-
-<p th:text="${book}">book</p></td>
 </body>
 </html>
