@@ -21,7 +21,7 @@ header {
 }
 
 .logo {
-    width: 30vh;
+    width: 30vw;
 }
 .form-control {
      width: 100%;
@@ -62,7 +62,6 @@ footer {
     display: block;
     background-color: #9edbc8;
     text-align: center;
-    height: 10vh;
     padding: 2%;
 }
 
@@ -123,3 +122,23 @@ footer {
     top:-12px;
     font-size:12px;
 }
+
+@media (max-width: 720px) {
+    .content {
+        justify-content: center;
+        display: block;
+        align-items: center;
+        text-align: center;
+    }
+    .logo {
+        width:50vw;
+    }
+    .main {
+        padding: 50px;
+    }
+    h1 {
+        font-size: 5vw;
+    }
+    .input-container input {
+        width: 100%;
+}}
