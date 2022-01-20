@@ -58,7 +58,7 @@ table {
 th, td {
     text-align: left;
     padding: 8px;
-    font-size: 10px;
+    font-size:1vw;
 }
 tr:nth-child(even) {background-color: beige;}
 tr {
