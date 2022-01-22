@@ -29,8 +29,6 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("Użytkownik nie znaleziony");
         }
         boolean isDisabled = false;
-        if (userEntity.getIsEnabled()==1)
-            isDisabled = true;
         UserDetails userDetails = User.withUsername(userEntity.getEmail())
                 .password(userEntity.getPassword())
                 .disabled(isDisabled)

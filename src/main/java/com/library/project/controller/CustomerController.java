@@ -46,7 +46,7 @@ public class CustomerController {
         if (book == null)
             return "error";
         if (userEntity.getIsEnabled()==1)
-            throw new ApiRequestException("Twoje konto zostało zablokowane");
+            throw new ApiRequestException("Twoje konto zostało zablokowane, skontaktuj się z pracownikiem biblioteki");
         if (userEntity.getReservationsCount() > 2)
             throw new ApiRequestException("Użytkownik ma za dużo wypożyczonych książek");
         else if (book.getBookStatus() == BookStatus.NIEDOSTEPNA || book.getBookStatus() == BookStatus.ZAGUBIONA)

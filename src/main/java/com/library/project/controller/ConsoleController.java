@@ -103,8 +103,14 @@ public class ConsoleController {
     }
 
     @PostMapping("/process_edit")
-    public String processEditUser(UserEntity userEntity, Model model) {
-        userEntity.setPassword(userRepository.getById(userEntity.getId()).getPassword());
+    public String processEditUser(UserEntity givenUserEntity, Model model) {
+        UserEntity userEntity = userRepository.getById(givenUserEntity.getId());
+
+        userEntity.setFirstName(givenUserEntity.getFirstName());
+        userEntity.setLastName(givenUserEntity.getLastName());
+        userEntity.setEmail(givenUserEntity.getEmail());
+        userEntity.setIsEnabled(givenUserEntity.getIsEnabled());
+        
         userRepository.save(userEntity);
 
         List<UserEntity> listUsers = userRepository.findAll();
@@ -119,7 +125,7 @@ public class ConsoleController {
         if (userEntity == null) {
             return "error";
         } else if (userEntity.getReservationsCount() != 0) {
-            throw new ApiRequestException("Użytkownik ma na stanie ksiązki");
+            throw new ApiRequestException("Użytkownik ma na stanie wypożyczone ksiązki");
         }
         userRepository.delete(userEntity);
         List<UserEntity> listUsers = userRepository.findAll();
