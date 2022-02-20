@@ -8,7 +8,7 @@ Used technologies:<br />
 -Spring Data Jpa<br />
 -Spring Security<br />
 -Thymeleaf<br />
--MySQLv
+-MySQL
 
 The app functionalities:<br />
 -registration new accounts(by admin)<br />
