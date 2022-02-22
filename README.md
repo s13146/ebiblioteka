@@ -1,4 +1,4 @@
-# ebiblioteka
+# eBiblioteka
 
 It's a a web application for managing a library. It's written in Java, HTML and CSS.
 
