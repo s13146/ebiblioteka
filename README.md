@@ -7,6 +7,8 @@ Used technologies:<br />
 -Spring Web MVC<br />
 -Spring Data Jpa<br />
 -Spring Security<br />
+-HTML <br />
+-CSS <br />
 -Thymeleaf<br />
 -MySQL
 
